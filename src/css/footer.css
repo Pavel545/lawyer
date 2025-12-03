@@ -1,0 +1,149 @@
+.footer{
+    height: 546px;
+    background: #003840;
+    padding: 50px 0px 10px 0px;
+}
+.footer_body{
+    display:flex;
+}
+.footer_logo{
+    display: block;
+    width: 160px;
+    height: 137px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 92px;
+}
+.footer_logo img{
+    height: 100%;
+    width: auto;
+}
+
+.footer_link_box{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 33px;
+}
+.footer{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+.footer_link{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #FBF4D5;
+    transition: 500ms;
+}
+.footer_link:hover{
+    transform: scale(1.1);
+    color: #fde787;
+}
+.footer nav{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.nav_tab{
+    position: relative;
+    height: 20px;
+    transition: 300ms;
+}
+.nt_active{
+    height: auto;
+}
+.nav_tab_ac{
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-image: linear-gradient(123.38deg, #F5D962 -1.21%, #D4AE44 5.25%, #A8751A 8.27%, #BB8D2B 14.88%, #9F6B14 21.64%, #AE8328 30.44%, #EBE077 43.39%, #FFFF91 57.92%, #FBF89C 79.52%, #C5A33F 91.15%, #D6BE57 91.15%);
+    -webkit-border-image: -webkit-linear-gradient(123.38deg, #F5D962 -1.21%, #D4AE44 5.25%, #A8751A 8.27%, #BB8D2B 14.88%, #9F6B14 21.64%, #AE8328 30.44%, #EBE077 43.39%, #FFFF91 57.92%, #FBF89C 79.52%, #C5A33F 91.15%, #D6BE57 91.15%);
+    border-image-slice: 1;
+    cursor: pointer;
+    transform: rotate(45deg);
+    transition: 300ms;
+    top: 6px;
+    left: 0px;
+}
+nav.nav_tab a:not(:nth-child(1)){
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF; 
+    text-transform: initial;
+    transition: 300ms;
+
+}
+nav.nav_tab a:not(:nth-child(1)):hover,nav a.footer_info_map:hover{
+    text-decoration: revert;
+    color: #ebe077;
+}
+.ac_active{
+    transform: rotateZ(137deg);
+}
+.footer_info_contacts img{
+    width: 30px;
+    height: 30px;
+    transition: 300ms;
+}
+.footer_info_contacts img:hover{
+    transform: scale(1.3);
+}
+nav a.footer_info_map{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: #FFFFFF;
+    text-transform: initial;
+    width: 241px;
+    transition: 300ms;
+    text-align: start;
+}
+.footer .header_tel{
+    align-self: start;
+}
+.linksfot {
+    display: flex;
+    gap: 13px;
+}
+.footer_f{
+    width: 100%;
+    border-top: 2px solid #FFFFFF;
+    
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 0px 20px;
+    opacity: 0.5;
+}
+.footer_f a{
+font-size: 14px;
+font-weight: 400;
+line-height: 18px;
+letter-spacing: 0em;
+text-align: left;
+color: #FFFFFF;
+}
+.footer .container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+
+.footer_logo:hover{
+    transition: 300ms;
+    filter: grayscale();
+}

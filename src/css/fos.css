@@ -1,0 +1,118 @@
+.popup{
+    position: fixed;
+    width: 0vw;
+    height: 100vh;
+    background: #0000008a;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: 500ms;
+    
+    z-index: 50;   
+}
+.popup_active{
+    width: 100vw;
+}
+.popup_form{
+
+    position: relative;
+    width: 726px;
+    height: 665px;
+    top: 20%;
+    left: 30%;
+    background: #FFFFFF;
+    border: 2px solid transparent;
+    border-image: linear-gradient(190deg, #F5D962 -1.21%, #D4AE44 5.25%, #A8751A 8.27%, #BB8D2B 14.88%, #9F6B14 21.64%, #AE8328 30.44%, #EBE077 43.39%, #FFFF91 57.92%, #FBF89C 79.52%, #C5A33F 91.15%, #D6BE57 91.15%);
+    -webkit-border-image: -webkit-linear-gradient(123.38deg, #F5D962 -1.21%, #D4AE44 5.25%, #A8751A 8.27%, #BB8D2B 14.88%, #9F6B14 21.64%, #AE8328 30.44%, #EBE077 43.39%, #FFFF91 57.92%, #FBF89C 79.52%, #C5A33F 91.15%, #D6BE57 91.15%);
+    border-image-slice: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 80px;
+    gap: 15px;
+
+}
+.popup_form_title{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    color: #003840;
+    padding-bottom: 30px;
+}
+.popup_form_title span{
+    color: #C5A33F;
+}
+.popup_form_text{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: #000000;
+}
+.popup_input{
+    background: #FFFFFF;
+    border: 2px solid #003840;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+.form_checkbox label{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    text-align: center;
+    color: #070707;
+}
+.form_checkbox{
+    display: flex;
+    gap: 10px;
+}
+.form_checkbox label a{
+    color: #B48525;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.text_area{
+    height: 140px;
+}
+.f_checkbox{
+    border: 0.8px solid #070707;
+    width: 18px;
+    height: 18px;
+}
+.input[type=checkbox]:checked::before {
+    background: #fff;
+}
+
+.popup_form_button{
+    transition: 300ms;
+    border: 2px solid #B48525;
+    background: none;
+}
+.popup_goode{
+    position: relative;
+    width: 726px;
+    height: 665px;
+    top: 20%;
+    left: 30%;
+    background: #FFFFFF;
+    border: 2px solid transparent;
+    border-image: linear-gradient(190deg, #F5D962 -1.21%, #D4AE44 5.25%, #A8751A 8.27%, #BB8D2B 14.88%, #9F6B14 21.64%, #AE8328 30.44%, #EBE077 43.39%, #FFFF91 57.92%, #FBF89C 79.52%, #C5A33F 91.15%, #D6BE57 91.15%);
+    -webkit-border-image: -webkit-linear-gradient(123.38deg, #F5D962 -1.21%, #D4AE44 5.25%, #A8751A 8.27%, #BB8D2B 14.88%, #9F6B14 21.64%, #AE8328 30.44%, #EBE077 43.39%, #FFFF91 57.92%, #FBF89C 79.52%, #C5A33F 91.15%, #D6BE57 91.15%);
+    border-image-slice: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 80px;
+    gap: 15px;
+}
+.popup_goode h3{
+    color: #003840;
+    text-align: center;
+}

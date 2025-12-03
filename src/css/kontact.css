@@ -1,0 +1,55 @@
+.contact_map{
+    position: relative;
+    width: 100%;
+    height: 900px;
+}
+.contact_map_info_box{
+    padding: 10px 10px ;
+    width: 80%;
+}
+.contact_map_info{
+    position: absolute;
+    height: 56%;
+    top: 0;
+    left: 0;
+    border: 1px solid #D9D9D9;
+    background: #FFFFFF;
+    z-index: 99999;
+    padding: 50px 10px 10px 10px;
+    width: 38%;
+}
+.contact_map_info_name{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+.contact_map_info_link{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #003840;
+}
+.map{
+    width: 100% ;
+    height:  100% ;
+}
+/* error */
+.error{
+    padding-bottom: 50px;
+}
+.error_but{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.error .flex{
+    gap: 20px;
+}
+
+.contact_map_info_link:hover:not(.time){
+    color: #d3ae10;
+    cursor: pointer;
+    transition: 300ms;
+}

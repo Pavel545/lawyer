@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    text-align: justify;
+}
+.container{
+    width: 1350px;
+    margin: 0px auto;
+}
+a{
+    text-decoration: none;
+}
+.but, button{
+    cursor: pointer;
+    width: 271px;
+    min-height: 46px;
+    background: linear-gradient(123.38deg, #D4AE44 -1.21%, #EBE077 -1.2%, #BB8D2B -1.19%, #AE8328 -1.18%, #FBF89C -1.17%, #F5D962 29.58%, #FFFF91 49.3%, #D6BE57 79.12%, #C5A33F 91.15%);
+
+    border:none;
+
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #003840;
+    transition: 300ms;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-align: center;
+}
+.but:hover, button:hover{
+    background: linear-gradient(179.87deg, #898987 -152.66%, #D4AE44 -130.79%, #BB8D2B -112.04%, #A8751A -93.3%, #9D6710 -77.67%, #99620C -62.05%, #9F6B14 -49.56%, #AE8328 -33.94%, #C8AA49 -0.97%, #EBE077 16.6%, #FBF89C 38.53%, #FFFF91 56.69%, #C5A33F 101%, #D6BE57 102.24%);
+
+}
+.but, button.skip-link{
+    border: none;
+    
+}
+.but:after, button:after {
+	content: "";
+	display: block;
+	width: 20px;
+	height: 200px;
+	margin-left: 50px;
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .5)), color-stop(50%, #fff), to(rgba(255, 255, 255, .5)));
+	background: -o-linear-gradient(top, rgba(255, 255, 255, .5) 0, #fff 50%, rgba(255, 255, 255, .5) 100%);
+	background: linear-gradient(to bottom, rgba(255, 255, 255, .5) 0, #fff 50%, rgba(255, 255, 255, .5) 100%);
+	left: -40px;
+	top: -100px;
+	z-index: 1;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	position: absolute;
+	-webkit-animation: 2s ease-in-out infinite movingFlare;
+	animation: 2s ease-in-out infinite movingFlare;
+}
+@-webkit-keyframes movingFlare {
+	0% {
+		left: -30px;
+		margin-left: 0
+	}
+
+	100%,
+	30% {
+		left: 110%;
+		margin-left: 80px
+	}
+}
+@keyframes movingFlare {
+	0% {
+		left: -30px;
+		margin-left: 0
+	}
+
+	100%,
+	30% {
+		left: 110%;
+		margin-left: 80px
+	}
+}
+
+
+h1{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 85px;
+    text-align: center;
+    color: #F8FDFF;
+}
+.h2,h2{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 65px;
+    line-height: 79px;
+    color: #003840; 
+    position: relative;
+    padding-bottom: 20px;
+    z-index: 1;
+}
+.h2::after,h2::after{
+    content: "";
+    position: absolute;
+    left: -36px;
+    top: -11px;
+    width: 81px;
+    z-index: -1;
+    height: 81px;
+    background:url(/public/img/decorat.png);
+    background-size: cover;
+}
+.h2{
+    width: max-content;
+}
+h3{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    color: #B48525; 
+}
+p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: #003840;
+}
+p.big{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 130%;
+    color: #003840;
+}
+a.normal{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    transition: 300ms;
+}
+a.normal:hover{
+    color: #ffe462;
+    box-shadow: 0px 2px 1px #ffe462;
+}
+.flex{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* BreadCrumbs */
+.BreadCrumbs{
+    display: flex;
+    gap: 25px;
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+.breadCrumbs_link{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 37px;
+    color: #003840;
+}
+.breadCrumbs_link:not(:last-child):after{
+    content: "→";
+    background: linear-gradient(9deg, #F5D962 -1.21%, #D4AE44 5.25%, #A8751A 8.27%, #BB8D2B 14.88%, #9F6B14 21.64%, #AE8328 30.44%, #EBE077 43.39%, #FFFF91 57.92%, #FBF89C 79.52%, #C5A33F 91.15%, #D6BE57 91.15%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-left: 20px;
+
+}
+.yellow{
+    color: #F5D962;
+}
+.orange{
+    color: #B48525;
+}
+.error_img{
+    width: 901px;
+height: 546px;
+
+}
+.grin{
+    color: #003840;
+}
+input:focus-visible{
+    border: none;
+    border-radius: none;
+}
+.none{
+    display: none;
+}
+.lineContact p.big {
+    font-size: 34px;
+}
