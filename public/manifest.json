@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "ООО «Финэкс» и ООО «Актавия-Про»",
+  "name": "ООО «Финэкс» и ООО «Актавия-Про»",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "./img/logo/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "/img/logoBig.png",
+      "src": "/img/logo/logo2.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/img/logoBig.png",
+      "src": "/img/logo/logo2.png",
       "type": "image/png",
       "sizes": "512x512"
     }

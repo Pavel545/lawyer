@@ -9,16 +9,16 @@ export function Footer(params) {
         <div className="footer_body">
           <div>
             <a className="footer_logo" href="/">
-              <img src={process.env.PUBLIC_URL + "/img/logoBig.png"} alt="" />{" "}
+              <img src={process.env.PUBLIC_URL + "/img/logo/logo2.png"} alt="" />{" "}
             </a>
           </div>
           <div className="footer_link_box">
             <div className="footer_navigate">
               <nav>
-                <a className="footer_link" href="/">
+                {/* <a className="footer_link" href="/">
                   Главная
-                </a>
-                <a className="footer_link" href="/">
+                </a> */}
+                <a className="footer_link" href="/compani">
                   О компании
                 </a>
 
@@ -46,7 +46,7 @@ export function Footer(params) {
                   Услуги для юр. лиц
                 </Link>
                 {yrid.map((e, i) => (
-                  <Link key={i} to={`/uslugi/${e.direction}`}>
+                  <Link className="" key={i} to={`/uslugi/${e.direction}`}>
                     {e.link}
                   </Link>
                 ))}
@@ -106,7 +106,7 @@ export function Footer(params) {
 
         <div className="footer_f">
           <a href="">Политика конфиденциальности</a>
-          <a href="">© «ЮристКонсалт» 2023</a>
+          <a href="">© «Финэкс» 2025</a>
           <a href="">Разработка сайта:</a>
         </div>
       </div>

@@ -1,0 +1,52 @@
+.goals {
+  padding: 120px 0;
+  background: var(--color-1);
+
+  background: url(/public/img/fon_section4.webp);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.goals h2 {
+  color: var(--color-3);
+}
+
+.goals-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  gap: 30px;
+  margin: 60px 0;
+}
+.goals-item-contain {
+  /* background: var(--color-3); */
+
+  height: 100%;
+  position: relative;
+}
+
+.goals-item {
+  display: flex;
+
+  gap: 20px;
+  margin: 15px;
+  padding: 15px;
+  height: -webkit-fill-available;
+  /* border: 2px solid; */
+
+  /* border-image: var(--color-gold);
+  -webkit-border-image: var(--color-gold);
+  border-image-slice: 1; */
+}
+.goals-item p {
+  color: var(--color-3);
+  font-size: var(--fs-24);
+  text-align: start;
+}
+.goals-item-icon {
+  background: var(--color-gold);
+  padding: 5px;
+  height: min-content;
+}

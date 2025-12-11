@@ -17,26 +17,29 @@ export function WeWork(params) {
   return (
     <section className="weWork">
       <div className="container flex">
-        <h2>КАК МЫ РАБОТАЕМ</h2>
+        <h2>НАДЕЖНЫЙ ПАРТНЕР В СЛОЖНЫХ ВОПРОСАХ</h2>
         <div className="weWork_content">
           <div data-item="1" className="weWork_content_item">
-            <span>
-              Свяжитесь с нашим специалистом по номеру телефона, мессенджер
-              WhatsApp, Telegram или оставьте заявку на консультацию
+            <span > <span className="gold">Опыт и Стабильность:</span>
+               13 лет на рынке. Штатные сотрудники с квалификационными аттестатами (сдаем экзамены каждые 3 года).
             </span>
           </div>
           <div data-item="2" className="weWork_content_item">
             <span>
-              Консультация по интересующему Вас вопросу по телефону или в офисе{" "}
+              <span className="gold">География:</span>
+               Работаем по всей россии <br /><br /><br /> 
             </span>
           </div>
           <div data-item="3" className="weWork_content_item">
-            <span>Заключите договор на правовое обслуживание </span>
+            
+            <span><span className="gold">Глубокий анализ:</span> Мы сразу подсвечиваем слабые места и риски. Наша цель — не просто сдать бумагу, а защитить ваши интересы.</span>
           </div>
           <div data-item="4" className="weWork_content_item">
-            <span>Изучение представленных документов и материалов </span>
+            <span>
+              <span className="gold">Ответственность:</span>
+               Нас не нужно контролировать. Соблюдение сроков — наш принцип.</span>
           </div>
-          <div data-item="5" className="weWork_content_item">
+          {/* <div data-item="5" className="weWork_content_item">
             <span>Разработка стратегии по делу </span>
           </div>
           <div data-item="6" className="weWork_content_item">
@@ -47,7 +50,7 @@ export function WeWork(params) {
           </div>
           <div data-item="8" className="weWork_content_item">
             <span>Сопровождение исполнительного производства </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

@@ -1,83 +1,81 @@
 export const fizlic =[
     {
-        direction:"semeinoe_pravo",
-        name:"Семейное право",
-        link:"Семейное право",
+        direction:"otsenka_dlya_ipoteki_zaloga",
+        name:"Оценка для ипотеки/залога",
+        mini:"Аккредитация в банках.",
+        link:"Оценка для ипотеки/залога",
         img:process.env.PUBLIC_URL + "/img/legalServices/1.png",
     },
     {
-        direction:"nasled_pravo",
-        name:"Наследственное право",
-        link:"Наследственное право",
+        direction:"otsenka_dlya_nasledstva",
+        name:"Оценка для наследства",
+        mini:"Оформление нотариальных документов.",
+
+        link:"Оценка для наследства",
         img:process.env.PUBLIC_URL + "/img/legalServices/2.png",
     },
     {
-        direction:"trudovoe_pravo",
-        name:"Трудовое право",
-        link:"Трудовое право",
+        direction:"razdel_imushchestva_i_sudebnye_spory",
+        name:"Раздел имущества и судебные споры",
+
+        mini:"Оценка для бракоразводных процессов и судов.",
+
+        link:"Раздел имущества и судебные споры",
         img:process.env.PUBLIC_URL + "/img/legalServices/3.png",
     },
     {
-        direction:"gilishnoe_pravo",
-        name:"Жилищное право",
-        link:"Жилищное право",
+        direction:"bankrotstvo_fizlits",
+        name:"Банкротство физлиц",
+        mini:"Оценка имущества должника.",
+        link:"Банкротство физлиц",
         img:process.env.PUBLIC_URL + "/img/legalServices/4.png",
-    },
-    {
-        direction:"potrebitelskoe_pravo",
-        name:"Защита прав потребителей",
-        link:"Защита прав потребителей",
-        img:process.env.PUBLIC_URL + "/img/legalServices/5.png",
-    },
-    {
-        direction:"ustanov_factov",
-        name:"Установление фактов",
-        link:"Установление фактов",
-        img:process.env.PUBLIC_URL + "/img/legalServices/6.png",
-    },
-    {
-        direction:"ispolnit_proisvod",
-        name:"Исполнительное производство",
-        link:"Исполнительное производство",
-        img:process.env.PUBLIC_URL + "/img/legalServices/7.png",
-    },
-    {
-        direction:"gragdanskoe_pravo",
-        name:"Гражданское право",
-        link:"Гражданское право",
-
-        img:process.env.PUBLIC_URL + "/img/legalServices/8.png",
-    },
+    }
 ]
 
 export const yrid =[
     {
-        direction:"pravovoe_soprovogd",
-        name:" Правовое сопровождение ",
-        mini:"абонентское обслуживание",
+        direction:"otsenka_oborudovaniya_i_mashin",
+        name:"Оценка оборудования и машин",
+        mini:"Станки, производственные линии, спецтехника.",
         link:"Правовое сопровождение",
 
         img:process.env.PUBLIC_URL + "/img/legalServices/9.png",
     },
     {
-        direction:"arbitag",
-        name:"Арбитраж",
-        link:"Арбитраж",
+        direction:"otsenka_biznesa_i_tsennykh_bumag",
+        name:"Оценка бизнеса и ценных бумаг",
+        mini:"Акции, доли в ООО, ПИФы.",
+        link:"Оценка бизнеса и ценных бумаг",
 
         img:process.env.PUBLIC_URL + "/img/legalServices/10.png",
     },
     {
-        direction:"korporativ_spor",
-        name:"Корпоративные споры",
-        link:"Корпоративные споры",
+        direction:"otsenka_kommercheskoy_nedvizhimosti",
+        name:"Оценка коммерческой недвижимости",
+        mini:"Офисы, склады, торговые площади.",
+        link:"Оценка коммерческой недвижимости",
 
         img:process.env.PUBLIC_URL + "/img/legalServices/11.png",
     },
     {
-        direction:"vziskanie",
-        name:"Взыскание",
-        mini:"Дебиторской задолженности",
-        link:"Взыскание задолженности",
+        direction:"otsenka_nma",
+        name:"Оценка НМА",
+        mini:"Интеллектуальная собственность, патенты, товарные знаки.",
+        link:"Оценка НМА",
+        img:process.env.PUBLIC_URL + "/img/legalServices/12.png",
+    },
+     {
+        direction:"otsenka_debitorskoy_zadolzhennosti",
+        name:"Оценка дебиторской задолженности",
+        mini:"Анализ прав требования.",
+        link:"Оценка дебиторской задолженности",
+        img:process.env.PUBLIC_URL + "/img/legalServices/12.png",
+    },
+     {
+        direction:"osparivanie_kadastrovoy_stoimosti",
+        name:"Оспаривание кадастровой стоимости",
+        mini:"Снижение налоговой базы (земельные участки, ОКС).",
+        link:"Оспаривание кадастровой стоимости",
         img:process.env.PUBLIC_URL + "/img/legalServices/12.png",
     },
     

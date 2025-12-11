@@ -2,7 +2,7 @@ import { Map, Placemark, YMaps } from "@pbe/react-yandex-maps";
 import { BreadCrumbs } from "../bloc/breadСrumbs";
 import "../css/kontact.css";
 import { LineContact } from "../bloc/line_contant";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 export function Kontacts() {
   const [first, setfirst] = useState([55.740117,37.565874])

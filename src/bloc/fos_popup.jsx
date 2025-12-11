@@ -2,9 +2,10 @@ import { useState } from "react";
 import "../css/fos.css";
 import { useRef } from "react";
 import ReactInputMask from "react-input-mask";
-import { SMail } from "../mail/qeri";
-import axios, { Axios } from "axios";
-export function Popup({ active, setActive, datatype }) {
+import axios from "axios";
+import { useAppContext } from "../layouts/context";
+export function Popup() {
+  const { active, setActive, datatype } = useAppContext();
   const [form, setForm] = useState(false);
   const ref = useRef(undefined);
   function def(e) {
@@ -16,24 +17,22 @@ export function Popup({ active, setActive, datatype }) {
       text: e.target[3].value,
     };
 
-
     console.log(element);
     axios({
-      method: 'POST',
-      url: '/mail.php',
+      method: "POST",
+      url: "/mail.php",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      data:JSON.stringify(element),
+      data: JSON.stringify(element),
     })
-    .then((response) => {
-      console.log(response)
-      setForm(true)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-
+      .then((response) => {
+        console.log(response);
+        setForm(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
@@ -45,13 +44,13 @@ export function Popup({ active, setActive, datatype }) {
         ref={ref}
         onClick={(e) => e.stopPropagation()}
         className="popup_form"
-        style={form?{display:"none"}:{}}
+        style={form ? { display: "none" } : {}}
         action=""
         onSubmit={def}
       >
         <p className="popup_form_title">
           {" "}
-          Задать вопрос <span>юристу</span>
+          Задать вопрос <span>эксперту</span>
         </p>
         <p className="popup_form_text">
           Для заказа услуги, оставьте заявку. Наш специалист свяжется с вами и
@@ -84,17 +83,13 @@ export function Popup({ active, setActive, datatype }) {
             Я принимаю <a href="file">пользовательское соглашение</a>
           </label>
         </div>
-        <button
-          
-          className="popup_form_button"
-        >
-          {datatype}
-        </button>
+        <button className="popup_form_button">{datatype}</button>
       </form>
-      <div style={!form? {display:"none"}:{}}  className="popup_goode">
-          <h3>
-          Ваша <span className="oregin">заявка успешно отправлена,</span> ожидайте звонка специалиста
-          </h3>
+      <div style={!form ? { display: "none" } : {}} className="popup_goode">
+        <h3>
+          Ваша <span className="oregin">заявка успешно отправлена,</span>{" "}
+          ожидайте звонка специалиста
+        </h3>
       </div>
     </div>
   );

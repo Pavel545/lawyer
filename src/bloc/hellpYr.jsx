@@ -37,8 +37,8 @@ export function HelpYr(params) {
     <section className="HelpYr">
       <div className="container">
         <p className="HelpYr_slogan">
-          Нужна помощь юриста{" "}
-          <span className="yellow">по {params.theme}?</span> Поможем,
+          Нужна помощь эксперта{" "}
+          <span className="yellow">по {params.theme}?</span> <br /> Поможем,
           обращайтесь!
         </p>
         <form style={form?{display:"none"}:{}} action=""

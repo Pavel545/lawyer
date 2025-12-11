@@ -1,54 +1,102 @@
-import { useRef, useState } from "react";
 import { Lawyers } from "../bloc/lawyers";
 import { LegalServices } from "../bloc/legalServiceses";
 import { LineContact } from "../bloc/line_contant";
 import { PrinciplesOperat } from "../bloc/principlesOperat";
 import { Questions } from "../bloc/questions";
-import { Reviews } from "../bloc/reviews";
 import "../css/main.css";
-import { Popup } from "../bloc/fos_popup";
-import { useEffect } from "react";
 import { WeWork } from "../bloc/weWork";
+import Goals from "../bloc/goals";
+import { useEffect, useState } from "react";
+import { useAppContext } from "../layouts/context";
 
 export function Main(params) {
-  const [modal,setModal]=useState(false)
-  const [data,setData]=useState(null)
-  setTimeout(() => Start(), 500)
-  
-  const Start = ()=>{
-    
-    const butt=document.querySelectorAll(".pop_up")
-  
-    butt.forEach((e)=>{
-      e.addEventListener("click",()=>{
-        
-        setModal(!modal)
-        setData(e.dataset.type)
-      })
-    })
-  }
+  const [displayedText, setDisplayedText] = useState("");
+  const [cursorVisible, setCursorVisible] = useState(true);
+  const {PopGo} = useAppContext();
+  const fullText = "ПРОФЕССИОНАЛЬНАЯ ОЦЕНКА И ФИНАНСОВАЯ ЭКСПЕРТИЗА";
+
+  // Эффект для мигающего курсора
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setCursorVisible((prev) => !prev);
+    }, 500);
+
+    return () => clearInterval(cursorInterval);
+  }, []);
+
+  // Эффект для печатания текста
+  useEffect(() => {
+    if (displayedText.length < fullText.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(fullText.substring(0, displayedText.length + 1));
+      }, 50); // Скорость печати - 50ms на символ
+
+      return () => clearTimeout(timeout);
+    }
+  }, [displayedText, fullText]);
+
+  // Стили для курсора
+  const cursorStyle = {
+    display: "inline-block",
+    width: "2px",
+    backgroundColor: "currentColor",
+    marginLeft: "2px",
+    opacity: cursorVisible ? 1 : 0,
+    transition: "opacity 0.1s",
+    height: "1.1em",
+    verticalAlign: "text-bottom",
+  };
+
   return (
     <main>
       <section className="faceBloc">
+        <video
+          autoPlay
+          loop
+          muted
+          pip="false"
+          playsInline
+          className="faceBloc-video"
+          poster={process.env.PUBLIC_URL + "/img/fon_section1.webp"}
+        >
+          <source
+            src={process.env.PUBLIC_URL + "/video/main.webpm"}
+            type="video/mp4"
+          />
+          <source
+            src={process.env.PUBLIC_URL + "/video/main.mp4"}
+            type="video/mp4"
+          />
+        </video>
+        <div className="faceBloc-overlay"></div>
         <div className="container">
-          <p className="gold">Мы предлагаем</p>
-          <h1>Профессиональную ЮРИДИЧЕСКУЮ ПОМОЩЬ</h1>
-          <p className="slogan">Наша работа - защита ваших интересов.</p>
-          <button  data-type="Получить консультацию" className="pop_up">
-          Получить консультацию
+          <p className="faceBloc-text gold">
+            Комплексные решения для бизнеса и частных лиц с опытом 13 лет.
+            Работаем по всей России.
+          </p>
+          <h1>
+            {displayedText}
+            {displayedText.length < fullText.length && (
+              <span style={cursorStyle}></span>
+            )}
+          </h1>
+          <p className="slogan">
+            Гарантия сдачи отчетов в срок. Аккредитация в банках. Полное
+            соответствие ФЗ-135.
+          </p>
+          <button onClick={()=>PopGo("Получить консультацию")} className="pop_up">
+            Получить консультацию
           </button>
         </div>
       </section>
-      <LegalServices/>
-      <WeWork/>
-      <PrinciplesOperat/>
+      <LegalServices />
+      <WeWork />
+      <PrinciplesOperat />
+      <Goals />
       <Lawyers />
-      <Reviews/>
-      <Questions/>
+      {/* <Reviews/> */}
+      <Questions />
       <LineContact />
-      <Popup active={modal} setActive={setModal} datatype={data}/>
     </main>
   );
 }
-
-

@@ -1,64 +1,92 @@
-export function Lawyers(params) {
+import { useAppContext } from "../layouts/context";
+
+export function Lawyers() {
+  const { PopGo } = useAppContext();
   return (
     <div className="container lawyers">
       <div className="lawyers_fixed">
         <div className="lawyers_fixed_content">
           <p className="big">
-            
-              Будем рады помочь в Вашем вопросе и компетентно сопроводить Ваше
-              дело!
-            
+            Мы — команда экспертов, которая не просто «пишет отчеты», а вникает
+            в суть вашего бизнеса и ситуации.
           </p>
-          <button  className="pop_up" onClick={params.popupClick} data-type="Оставить заявку">Оставить заявку</button>
+          <button
+            className="pop_up"
+            onClick={()=>PopGo("Оставить заявку")}
+          >
+            Оставить заявку
+          </button>
         </div>
       </div>
       <div className="lawyers_info">
         <p className="lawyers_info_title">
-          Наши <span>юристы</span> имеют многолетний успешный опыт в разрешении
-          конфликтов любой сложности.
+          Наша цель — не просто сдать бумагу, а защитить ваши интересы перед
+              банком, судом или налоговой.
         </p>
         <div className="lawyers_info_content">
           <div>
             <p className="lawyers_info_content_h3">
-              Наши преимущества заключаются:
+              Наши преимущества:
             </p>
             <p className="big">
-              в том, что мы ищем пути решения проблемы на стадии досудебного
-              урегулирования.
+              компетентность мы сразу подсвечиваем слабые места и риски.
             </p>
-            <p className="lawyers_info_content_bleac">
-              Но если дело все же доведено до суда, мы станем для вас надежным
-              проводником в сложной законодательной системе, подготовив
-              необходимые документы и выработав правовую позицию по делу.
-            </p>
+          
           </div>
           <div>
-            <p className="lawyers_info_content_h3">
-              Дела наших клиентов лежат в различных областях права:
-            </p>
+            <p className="lawyers_info_content_h3">Опыт и Стабильность:</p>
             <ul className="lawyers_info_content_spisok">
-              <li>семейное;</li>
-              <li>трудовое;</li>
-              <li>жилищное;</li>
-              <li>защита прав потребителей и др.</li>
+              <li>13 лет на рынке.</li>
+              <li>
+                Штатные сотрудники с квалификационными аттестатами (сдаем
+                экзамены каждые 3 года).
+              </li>
             </ul>
             <p className="lawyers_info_content_bleac">
-              Обращаясь к нам, Вы получите полноценную консультацию юриста с
+              Обращаясь к нам, Вы получите полноценную консультацию эксперта с
               изучением документов и анализом ситуации.
             </p>
           </div>
           <div>
+            <p className="lawyers_info_content_h3">Ответственность:</p>
+            <p className="lawyers_info_content_punkt">
+              Нас не нужно контролировать.
+            </p>
+            <p className="lawyers_info_content_punkt">
+              Соблюдение сроков — наш принцип.
+            </p>
+          </div>
+          <br />
+          <div>
+            <p className="lawyers_info_content_h3">работаем по всей россии:</p>
+            <p className="lawyers_info_content_bleac">
+              Работаем в Ульяновске и дистанционно по всей России (опыт работы с
+              объектами от Сочи до Хабаровска).
+            </p>
+          </div>
+          <div>
             <p className="lawyers_info_content_h3">
-              Представление Ваших интересов в суде включает в себя :
+              ПРЕДСТАВЛЕНИЕ ВАШИХ ИНТЕРЕСОВ И ЭКСПЕРТИЗА:
             </p>
-            <p className="lawyers_info_content_punkt">
-              ознакомление с материалами дела, проведение правового анализа;{" "}
+            <p className="lawyers_info_content_bleac">
+              Мы специализируемся на задачах любой сложности для бизнеса и
+              частных лиц:
             </p>
-            <p className="lawyers_info_content_punkt">
-            подготовка и подача искового заявления, письменных возражений и прочих процессуальных документов;             </p>
-            <p className="lawyers_info_content_punkt">
-            разработка и заключение мировых соглашений.
-            </p>
+
+            <ul className="lawyers_info_content_spisok">
+              <li>
+                Для Суда: Судебная экспертиза, рецензирование отчетов других
+                оценщиков, выработка правовой позиции по стоимости.
+              </li>
+              <li>
+                Для Банков: Оценка для ипотеки и залога (аккредитованы в
+                банках).
+              </li>
+              <li>
+                Для Бизнеса: Оспаривание кадастровой стоимости, оценка
+                оборудования, НМА и ценных бумаг.
+              </li>
+            </ul>
           </div>
         </div>
       </div>

@@ -7,9 +7,7 @@
 
 }
 @media only screen and (max-width : 1500px) {
-    h1 {
-        font-size: 60px;
-    }
+   
     .container{
         width: 1400px;
     }
@@ -51,16 +49,17 @@
     .header_menu__link {
         font-size: 19px;
     }
-    .open {
+    /* .open {
         bottom: -286px;
         left: -312px;
-    }
+    } */
     .uslug button {
         width: -webkit-fill-available;
     }
-    p.big {
-        font-size: 18px;
+    :root{
+        --fs-24:18px;
     }
+   
     .principles_body_right .principles_body_right_item img {
         left: 10% !important;
     }
@@ -108,7 +107,18 @@
         width: 90%;
     }
 }
-
+@media only screen and (max-width : 1200px){
+    .legalServices{
+        padding: 60px 0;
+    }
+    .lawyers{
+        padding: 60px 0;
+    }
+    .legalServices_content{
+        grid-template-columns: repeat(1,1fr);
+        justify-items: center;
+    }
+}
 @media only screen and (max-width : 700px) {
     body{
         min-width: 600px;
@@ -163,7 +173,7 @@
     .adaptiveMenu_box{
         display: flex;
         position: fixed;
-        background: linear-gradient(180deg, #162F36 0%, #132E35 106.85%);
+        background: var(--color-3);
         flex-direction: column;
         gap: 30px;
         right: 0;
@@ -182,7 +192,7 @@
         height: auto;
     }
     .header_menu__link_menu_bloc p {
-        background: linear-gradient(188deg, #F5D962 -1.21%, #D4AE44 5.25%, #A8751A 8.27%, #BB8D2B 14.88%, #9F6B14 21.64%, #AE8328 30.44%, #EBE077 43.39%, #FFFF91 57.92%, #FBF89C 79.52%, #C5A33F 91.15%, #D6BE57 91.15%);
+        background: var(--color-1);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -193,7 +203,6 @@
         grid-template-columns: repeat(2,1fr);
     }
     .uslug {
-        height: 190px;
         padding: 10px;
         width: 100%;
         justify-content: flex-start;
@@ -208,11 +217,7 @@
     .uslug button {
         display: none;
     }
-    h2 {
-        font-size: 48px;
-        text-align: center;
-        width: min-content;
-    }
+    
     .weWork_content {
         height: auto;
         align-content: center;
@@ -386,9 +391,10 @@
         font-size: 12px;
         left: -44px;
     }
-    p.big {
-        font-size: 16px;
+    :root{
+        --fs-24:16px;
     }
+  
     .principles_body_right_item img {
         height: 66px;
     }    

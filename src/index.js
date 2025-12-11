@@ -1,25 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { AppRoutes } from "./route";
 
 import "./css/fos.css";
 import "./font/Monserat/stylesheet.css";
-import { Headers } from "./bloc/header";
-import { Footer } from "./bloc/footer";
-import { BrowserRouter, HashRouter } from "react-router-dom";
-import ScrollToTop from "./top";
+import Router from "./route";
+import "./css/global.css";
 import "./css/media.css"
+import { AppProvider } from "./layouts/context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <HashRouter>
-      <Headers />
-      <ScrollToTop>
-      <AppRoutes />
-      </ScrollToTop>
+    <AppProvider>
+      <Router />
+    </AppProvider>
 
-      <Footer />
-    </HashRouter>
   </React.StrictMode>
 );
