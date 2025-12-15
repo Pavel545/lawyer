@@ -55,7 +55,7 @@ export function Kontacts() {
                   geometry={first}
                   options={{
                     iconLayout: "default#image",
-                    iconImageHref: process.env.PUBLIC_URL + "/map.png",
+                    iconImageHref:  "/map.png",
                     iconImageSize: [70, 70],
                     iconImageOffset: [-3, -42],
                   }}

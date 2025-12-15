@@ -49,10 +49,11 @@ export function LegalServices() {
   }
 
   return (
-    <section id="legalServices" className="container legalServices flex">
-      <h2>ЮРИДИЧЕСКИЕ УСЛУГИ</h2>
+    <section id="legalServices" className="container ">
+     <div className="legalServices flex">
+       <h2>ОЦЕНКА И ЭКСПЕРТИЗА</h2>
 
-          <h3>оценка и экспертиза</h3>
+          <h3>Юридическим лицам</h3>
           <div id="legalServices_yr" className="legalServices_box">
             {yrid.map((e, i) => (
               <Legal
@@ -76,6 +77,7 @@ export function LegalServices() {
               />
             ))}
           </div>
+     </div>
     </section>
   );
 }

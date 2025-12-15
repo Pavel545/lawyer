@@ -5,7 +5,7 @@ import ReactInputMask from "react-input-mask";
 import axios from "axios";
 import { useAppContext } from "../layouts/context";
 export function Popup() {
-  const { active, setActive, datatype } = useAppContext();
+  const { active, setActive, datatype, title } = useAppContext();
   const [form, setForm] = useState(false);
   const ref = useRef(undefined);
   function def(e) {
@@ -53,8 +53,8 @@ export function Popup() {
           Задать вопрос <span>эксперту</span>
         </p>
         <p className="popup_form_text">
-          Для заказа услуги, оставьте заявку. Наш специалист свяжется с вами и
-          ответит на все вопросы.
+          {title ? title : 'Для заказа услуги, оставьте заявку. Наш специалист свяжется с вами и ответит на все вопросы.'}
+          
         </p>
         <input required placeholder="Имя" className="popup_input" type="text" />
         <ReactInputMask

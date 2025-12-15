@@ -43,11 +43,15 @@
   /* -webkit-background-clip: text; */
   /* -webkit-text-fill-color: transparent; */
   /* background-clip: text; */
+  text-wrap: nowrap;
   align-self: center;
   padding-right: 13px;
   overflow: hidden;
   display: block;
   position: relative;
+}
+.faceBloc-text.gold{
+  text-align: center;
 }
 .header_tel:hover:after {
   content: "";

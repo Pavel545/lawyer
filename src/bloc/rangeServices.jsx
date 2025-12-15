@@ -33,12 +33,12 @@ export function RangeServices(params) {
 function Funct({ name, text }) {
   const {PopGo} = useAppContext();
   return (
-    <div className="uslug">
+    <div onClick={()=>PopGo(name, text)} className="uslug">
       <div>
         <p>{name}</p>
       </div>
-      <span>{text}</span>
-      <button onClick={()=>PopGo(name)} className="pop_up">Оставить заявку</button>
+      {/* <span>{text}</span> */}
+      <button  className="pop_up">Оставить заявку</button>
     </div>
   );
 }

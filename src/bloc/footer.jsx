@@ -1,30 +1,27 @@
 import { HashLink as Link } from "react-router-hash-link";
 import "../css/footer.css";
 import { fizlic, yrid } from "../data/basa";
+import { NavLink } from "react-router-dom";
 
 export function Footer(params) {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer_body">
-          <div>
             <a className="footer_logo" href="/">
-              <img src={process.env.PUBLIC_URL + "/img/logo/logo2.png"} alt="" />{" "}
+              <img src={ "/img/logo/logo2.png"} alt="" />{" "}
             </a>
-          </div>
           <div className="footer_link_box">
             <div className="footer_navigate">
               <nav>
                 {/* <a className="footer_link" href="/">
                   Главная
                 </a> */}
-                <a className="footer_link" href="/compani">
+                <NavLink className="footer_link" to="/compani">
                   О компании
-                </a>
+                </NavLink>
 
-                <Link duration={500} className="footer_link" to="/#reviews">
-                  Отзывы
-                </Link>
+              
               </nav>
             </div>
 
@@ -81,20 +78,20 @@ export function Footer(params) {
                   <a  target="_blank" href="https://vk.com/id808117030">
                     {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
                     <img
-                      src={process.env.PUBLIC_URL + "/img/vk.png"}
+                      src={ "/img/vk.png"}
                       alt="vk"
                     />
                   </a>
                   <a target="_blank" href="https://api.whatsapp.com/send?phone=79168868832">
                     {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
                     <img
-                      src={process.env.PUBLIC_URL + "/img/watsapp.png"}
+                      src={ "/img/watsapp.png"}
                       alt="WatsApp"
                     />
                   </a>
                   <a target="_blank"href="https://t.me/+79168868832">
                     <img
-                      src={process.env.PUBLIC_URL + "/img/tg.png"}
+                      src={ "/img/tg.png"}
                       alt="Telegram"
                     />
                   </a>

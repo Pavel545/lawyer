@@ -19,6 +19,10 @@ h3.services_faise_title {
   line-height: 135%;
   color: #070707;
   padding-top: 20px;
+  height: min-content;
+  position: sticky;
+  top: 10px;
+  overflow: hidden;
 }
 .blu {
   color: #003840;
@@ -58,8 +62,7 @@ h3.services_faise_title {
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 50px;
-  padding-top: 30px;
-  height: 500px;
+  height: auto;
   width: 100%;
 }
 .services_faise_img img {
@@ -113,8 +116,25 @@ h3.services_faise_title {
 /* HelpYr */
 
 .HelpYr {
-  background: url(/public/img/fon_section3.webp);
+  background: url(/public/img/fon_sect3.png);
   background-size: cover;
+  position: relative;
+}
+.HelpYr::after{
+  content: '';
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #0000009c;
+
+}
+.HelpYr * {
+  z-index: 2;
 }
 .HelpYr button {
   margin-top: 25px;
@@ -154,7 +174,7 @@ textarea:focus-visible {
   line-height: 41px;
   color: #f8fdff;
 }
-.HelpYr_form h2::after {
+.HelpYr_form h2::before {
   content: none;
 }
 .HelpYr_slogan {
@@ -192,12 +212,12 @@ textarea:focus-visible {
   padding-top: 40px;
   padding-bottom: 90px;
 }
-.RangeServices h2::after {
+.RangeServices h2::before {
   content: none;
 }
 .RangeServices_list {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(auto-fit, minmax(32%, 1fr));
   gap: 20px;
   width: 100%;
   justify-content: space-around;
@@ -421,7 +441,7 @@ textarea:focus-visible {
 .RangeServices .uslug > div p {
   font-style: normal;
   font-weight: 500;
-  font-size: 23px;
+     font-size: clamp(14px, 2rem, 23px);
   line-height: 130%;
   display: flex;
   align-items: center;
@@ -455,7 +475,7 @@ textarea:focus-visible {
 .CostServises {
   padding: 100px;
   background: #fafafa;
-  padding: 60px;
+  padding: 60px 0;
 }
 .CostServises h2 {
   text-align: center;

@@ -4,7 +4,7 @@ export const fizlic =[
         name:"Оценка для ипотеки/залога",
         mini:"Аккредитация в банках.",
         link:"Оценка для ипотеки/залога",
-        img:process.env.PUBLIC_URL + "/img/legalServices/1.png",
+        img: "/img/legalServices/1.png",
     },
     {
         direction:"otsenka_dlya_nasledstva",
@@ -12,7 +12,7 @@ export const fizlic =[
         mini:"Оформление нотариальных документов.",
 
         link:"Оценка для наследства",
-        img:process.env.PUBLIC_URL + "/img/legalServices/2.png",
+        img: "/img/legalServices/2.png",
     },
     {
         direction:"razdel_imushchestva_i_sudebnye_spory",
@@ -21,14 +21,14 @@ export const fizlic =[
         mini:"Оценка для бракоразводных процессов и судов.",
 
         link:"Раздел имущества и судебные споры",
-        img:process.env.PUBLIC_URL + "/img/legalServices/3.png",
+        img: "/img/legalServices/3.png",
     },
     {
         direction:"bankrotstvo_fizlits",
         name:"Банкротство физлиц",
         mini:"Оценка имущества должника.",
         link:"Банкротство физлиц",
-        img:process.env.PUBLIC_URL + "/img/legalServices/4.png",
+        img: "/img/legalServices/4.png",
     }
 ]
 
@@ -39,7 +39,7 @@ export const yrid =[
         mini:"Станки, производственные линии, спецтехника.",
         link:"Правовое сопровождение",
 
-        img:process.env.PUBLIC_URL + "/img/legalServices/9.png",
+        img: "/img/legalServices/9.png",
     },
     {
         direction:"otsenka_biznesa_i_tsennykh_bumag",
@@ -47,7 +47,7 @@ export const yrid =[
         mini:"Акции, доли в ООО, ПИФы.",
         link:"Оценка бизнеса и ценных бумаг",
 
-        img:process.env.PUBLIC_URL + "/img/legalServices/10.png",
+        img: "/img/legalServices/10.png",
     },
     {
         direction:"otsenka_kommercheskoy_nedvizhimosti",
@@ -55,28 +55,28 @@ export const yrid =[
         mini:"Офисы, склады, торговые площади.",
         link:"Оценка коммерческой недвижимости",
 
-        img:process.env.PUBLIC_URL + "/img/legalServices/11.png",
+        img: "/img/legalServices/11.png",
     },
     {
         direction:"otsenka_nma",
         name:"Оценка НМА",
         mini:"Интеллектуальная собственность, патенты, товарные знаки.",
         link:"Оценка НМА",
-        img:process.env.PUBLIC_URL + "/img/legalServices/12.png",
+        img: "/img/legalServices/12.png",
     },
      {
         direction:"otsenka_debitorskoy_zadolzhennosti",
         name:"Оценка дебиторской задолженности",
         mini:"Анализ прав требования.",
         link:"Оценка дебиторской задолженности",
-        img:process.env.PUBLIC_URL + "/img/legalServices/12.png",
+        img: "/img/legalServices/12.png",
     },
      {
         direction:"osparivanie_kadastrovoy_stoimosti",
         name:"Оспаривание кадастровой стоимости",
         mini:"Снижение налоговой базы (земельные участки, ОКС).",
         link:"Оспаривание кадастровой стоимости",
-        img:process.env.PUBLIC_URL + "/img/legalServices/12.png",
+        img: "/img/legalServices/12.png",
     },
     
 ]

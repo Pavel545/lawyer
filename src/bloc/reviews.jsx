@@ -22,11 +22,11 @@ export function Reviews() {
                 <div className="reviews_items">
                     <div className={number===1?"reviews_item r_active":"reviews_item"}>
                         <div className="reviews_item_star">
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
                         </div>
                         <p className="reviews_item_text">
                             Спасибо за своевременное оказание юридической помощи в нужный
@@ -39,11 +39,11 @@ export function Reviews() {
                     </div>
                     <div className={number===2?"reviews_item r_active":"reviews_item"}>
                         <div className="reviews_item_star">
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
                         </div>
                         <p className="reviews_item_text">
                             Спасибо за своевременное оказание юридической помощи в нужный
@@ -55,10 +55,10 @@ export function Reviews() {
                     </div>
                     <div className={number===3?"reviews_item r_active":"reviews_item"}>
                         <div className="reviews_item_star">
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
-                            <img src={process.env.PUBLIC_URL + "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
+                            <img src={ "/img/Star.png"} alt="" />
                         </div>
                         <p className="reviews_item_text">
                             Спасибо !

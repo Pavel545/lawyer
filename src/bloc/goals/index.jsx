@@ -41,7 +41,7 @@ export default function Goals(params) {
                     <Icon className="w-6 h-6 text-[#0a2540]" strokeWidth={2} />
                   </div>
                   <div>
-                    <h3 className="">{purpose.title}</h3>
+                    <h3 className="gold">{purpose.title}</h3>
                     <p className="">{purpose.description}</p>
                   </div>
               </div>

@@ -12,14 +12,14 @@ export default function Compani(params) {
           pip="false"
           playsInline
           className="faceBloc-video"
-          poster={process.env.PUBLIC_URL + "/img/fon_section1.webp"}
+          poster={ "/img/fon_section1.webp"}
         >
           <source
-            src={process.env.PUBLIC_URL + "/video/main.webpm"}
+            src={ "/video/main.webpm"}
             type="video/mp4"
           />
           <source
-            src={process.env.PUBLIC_URL + "/video/main.mp4"}
+            src={ "/video/main.mp4"}
             type="video/mp4"
           />
         </video>

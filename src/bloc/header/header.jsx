@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import "../css/header.css";
+import "./header.css";
 import { Link, useLocation } from "react-router-dom";
-import { fizlic, yrid } from "../data/basa";
+import { fizlic, yrid } from "../../data/basa";
 import { NavLink } from "react-router-dom";
 
 export function Headers() {
@@ -38,7 +38,7 @@ export function Headers() {
       <div className="header_menu">
         <div className="container">
           <Link className="header_logo" to="/">
-            <img src={process.env.PUBLIC_URL + "/img/logo/logo4.png"} alt="" />
+            <img src={ "/img/logo/logo4.png"} alt="" />
           </Link>
           <nav className="header_menu__link_box">
             {/* <Link
@@ -127,7 +127,7 @@ export function Headers() {
             <a target="_blank" title="vk" href="https://vk.com/id808117030">
               {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
 
-              <img src={process.env.PUBLIC_URL + "/img/vk.png"} alt="vk" />
+              <img src={ "/img/vk.png"} alt="vk" />
             </a>
             <a
               target="_blank"
@@ -135,13 +135,13 @@ export function Headers() {
             >
               {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
               <img
-                src={process.env.PUBLIC_URL + "/img/watsapp.png"}
+                src={ "/img/watsapp.png"}
                 alt="WatsApp"
               />
             </a>
             <a target="_blank" href="https://t.me/+79168868832">
               <img
-                src={process.env.PUBLIC_URL + "/img/tg.png"}
+                src={ "/img/tg.png"}
                 alt="Telegram"
               />
             </a>
@@ -211,20 +211,20 @@ export function Headers() {
                     <a href="https://vk.com/id808117030">
                       {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
                       <img
-                        src={process.env.PUBLIC_URL + "/img/vk.png"}
+                        src={ "/img/vk.png"}
                         alt="vk"
                       />
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=79168868832">
                       {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
                       <img
-                        src={process.env.PUBLIC_URL + "/img/watsapp.png"}
+                        src={ "/img/watsapp.png"}
                         alt="WatsApp"
                       />
                     </a>
                     <a href="https://t.me/+79168868832">
                       <img
-                        src={process.env.PUBLIC_URL + "/img/tg.png"}
+                        src={ "/img/tg.png"}
                         alt="Telegram"
                       />
                     </a>

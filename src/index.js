@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+
 import "./css/fos.css";
 import "./font/Monserat/stylesheet.css";
 import Router from "./route";

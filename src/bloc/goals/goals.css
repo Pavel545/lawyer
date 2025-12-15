@@ -2,7 +2,7 @@
   padding: 120px 0;
   background: var(--color-1);
 
-  background: url(/public/img/fon_section4.webp);
+  background: url(/public/img/fon_sect.png);
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,11 +12,16 @@
   color: var(--color-3);
 }
 
+.goals h2::before {
+  content: none;
+}
+
 .goals-content {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
   grid-template-rows: repeat(2, 1fr);
 
+  width: 100%;
   gap: 30px;
   margin: 60px 0;
 }

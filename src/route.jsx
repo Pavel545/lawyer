@@ -7,37 +7,48 @@ import { Kontacts } from "./pages/kontact";
 import { Error404 } from "./pages/404";
 import AppLayout from "./layouts";
 import Compani from "./pages/compani";
+import { Suspense } from "react";
 
 const Router = () => {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <AppLayout />,
-      errorElement: <Error404 />,
-      children: [
-        {
-          index: true,
-          element: <Main />,
-        },
-        {
-          path: `/uslugi/`,
-          element: <Uslugi />,
-        },
-        {
-          path: `/kontacts/`,
-          element: <Kontacts />,
-        },
-        {
-          path: `/compani`,
-          element: <Compani />,
-        },
-        {
-          path: `/uslugi/:direction`,
-          element: <Services />,
-        },
-      ],
-    },
-  ]);
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <AppLayout />,
+        errorElement: <Error404 />,
+        children: [
+          {
+            index: true,
+            element: <Suspense>
+              <Main />
+            </Suspense>,
+          },
+          {
+            path: `/uslugi/`,
+            element: <Suspense><Uslugi /></Suspense>,
+          },
+          {
+            path: `/kontacts/`,
+            element:<Suspense>
+               <Kontacts />
+            </Suspense>,
+          },
+          {
+            path: `/compani`,
+            element: <Suspense>
+              <Compani />
+            </Suspense>,
+          },
+          {
+            path: `/uslugi/:direction`,
+            element:<Suspense>
+               <Services />
+            </Suspense>,
+          },
+        ],
+      },
+    ]
+  );
 
   return <RouterProvider router={router} />;
 };

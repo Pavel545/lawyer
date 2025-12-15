@@ -1,5 +1,8 @@
+import { useAppContext } from "../layouts/context";
 
 export function LineContact(params) {
+      const {PopGo} = useAppContext();
+
     return(
         <div  className="lineContact">
                 <div className="container">
@@ -8,10 +11,10 @@ export function LineContact(params) {
                     <p className="big">Остались вопросы? <span className="green">Оставьте заявку </span>- поможем!</p>
                     }
                     {params.line?
-                    <div data-info={params.line} data-type="Узнать стоимость" className="lineContact_button pop_up">
+                    <div data-info={params.line} onClick={()=>PopGo("Узнать стоимость")}  className="lineContact_button pop_up">
                     Узнать стоимость
                </div>:
-                    <button data-type="Оставить заявку" className="lineContact_button pop_up">
+                    <button onClick={()=>PopGo("Оставить заявку")}  className="lineContact_button pop_up">
                          Оставить заявку
                     </button>
                     }
