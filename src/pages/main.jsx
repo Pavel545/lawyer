@@ -12,9 +12,9 @@ import { useAppContext } from "../layouts/context";
 export function Main(params) {
   const [displayedText, setDisplayedText] = useState("");
   const [cursorVisible, setCursorVisible] = useState(true);
-  const {PopGo} = useAppContext();
-  const fullText = "ПРОФЕССИОНАЛЬНАЯ ОЦЕНКА И ФИНАНСОВАЯ ЭКСПЕРТИЗА";
-
+  const { PopGo } = useAppContext();
+  const fullText = "ПРОФЕССИОНАЛЬНАЯ ОЦЕНКА И ЭКОНОМИЧЕСКО-ФИНАНСОВАЯ ЭКСПЕРТИЗА";
+ 
   // Эффект для мигающего курсора
   useEffect(() => {
     const cursorInterval = setInterval(() => {
@@ -57,16 +57,10 @@ export function Main(params) {
           pip="false"
           playsInline
           className="faceBloc-video"
-          poster={ "/img/fon_section1.webp"}
+          poster={"/img/fon_section1.webp"}
         >
-          <source
-            src={ "/video/main.webm"}
-            type="video/mp4"
-          />
-          <source
-            src={ "/video/main.mp4"}
-            type="video/mp4"
-          />
+          <source src={"/video/main.webm"} type="video/mp4" />
+          <source src={"/video/main.mp4"} type="video/mp4" />
         </video>
         <div className="faceBloc-overlay"></div>
         <div className="container">
@@ -81,10 +75,13 @@ export function Main(params) {
             )}
           </h1>
           <p className="slogan">
-            Гарантия сдачи отчетов в срок. Аккредитация в банках. Полное
-            соответствие ФЗ-135.
+            Гарантия сдачи отчетов в срок. Аккредитация в банках. <br />
+            Полное соответствие  Федерального закона "Об оценочной деятельности в Российской Федерации" от 29.07.1998 N 135-ФЗ
           </p>
-          <button onClick={()=>PopGo("Получить консультацию")} className="pop_up">
+          <button
+            onClick={() => PopGo("Получить консультацию")}
+            className="pop_up"
+          >
             Получить консультацию
           </button>
         </div>

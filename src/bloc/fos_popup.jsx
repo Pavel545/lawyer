@@ -5,7 +5,7 @@ import ReactInputMask from "react-input-mask";
 import axios from "axios";
 import { useAppContext } from "../layouts/context";
 export function Popup() {
-  const { active, setActive, datatype, title } = useAppContext();
+  const { active, setActive, datatype, title, closePop } = useAppContext();
   const [form, setForm] = useState(false);
   const ref = useRef(undefined);
   function def(e) {
@@ -37,7 +37,7 @@ export function Popup() {
 
   return (
     <div
-      onClick={() => setActive(!active)}
+      onClick={() => closePop()}
       className={active ? "popup popup_active" : "popup"}
     >
       <form

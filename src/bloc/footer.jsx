@@ -61,17 +61,17 @@ export function Footer(params) {
                 <a
                   target="_blank"
                   className="footer_info_map"
-                  href="https://yandex.ru/maps/?um=constructor%3Abf621e30e098f18331c97ef0f5a0b3022328bd8c61225861e655ee23ec08c511&source=constructorLink"
+                  href="https://yandex.ru/maps/213/moscow/house/prospekt_mira_102k1/Z04YcARmT00HQFtvfXRxcXlqYQ==/?ll=37.636679%2C55.800595&source=serp_navig&z=17.05"
                 >
-                  г. Москва, Бережковская наб., д. 6, офис 24
+                  129626, город Москва, пр-кт Мира, д. 102 к. 1, помещ. 3/7 
                 </a>
                 <a
                   target="_blank"
 
                   className="footer_info_map"
-                  href="https://yandex.ru/maps/?um=constructor%3A4f206e5d8b2f01b9331ad88f9b6b9298067ac0f348828855472060f2c71c6a96&source=constructorLink"
+                  href="https://yandex.ru/maps/195/ulyanovsk/?ll=48.375127%2C54.294186&mode=poi&poi%5Bpoint%5D=48.375010%2C54.294273&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D47152754937&source=serp_navig&z=20.65"
                 >
-                  г. Москва, наб. Пресненская, д. 8, стр. 1, помещ. 7Н/8
+                  432063, Ульяновская область, город Ульяновск, ул. Кирова, д.99
                 </a>
                 
                 <div className="linksfot">

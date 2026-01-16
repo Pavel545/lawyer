@@ -1,56 +1,50 @@
-export function PrinciplesOperat(params) {
+export function PrinciplesOperat() {
+  const steps = [
+    {
+      title: "Заявка",
+      text: "Вы оставляете заявку или звоните",
+    },
+    {
+      title: "Анализ задачи",
+      text: "Мы уточняем цели (суд, банк, продажа) и список документов",
+    },
+    {
+      title: "Договор и оплата",
+      text: "Честная цена без скрытых доплат",
+    },
+    {
+      title: "Работа эксперта",
+      text: "Выезд на объект (при необходимости) или дистанционный анализ",
+    },
+    {
+      title: "Готовый отчет",
+      text: "Передача документов, соответствующих требованиям Федеральным стандартам оценки, а так же Федерального закона \"Об оценочной деятельности в Российской Федерации\" от 29.07.1998 N 135-ФЗ",
+    },
+  ];
+
   return (
-    <section className="principles">
-      <div className="container flex ">
-        <h2>Схема работы</h2>
-        <div className="principles_body">
-          <div className="principles_body_left ">
-            <img src={ "/img/princip1.webp"} alt="" />
-            <img src={ "/img/princip2.webp"} alt="" />
+    <section className="principles workScheme">
+      <div className="container">
+        <h2 className="h2">Схема работ</h2>
+
+        <div className="workScheme-grid">
+          {/* Левая картинка */}
+          <div className="workScheme-media">
+            <img src={"/img/bos.jpg"} alt="Схема работ" loading="lazy" />
           </div>
-          <div className="principles_body_right">
-            <div className="principles_body_right_item">
-              <img src={ "/img/number/1.png"} alt="" />
-              <p className="big principles_body_right_item_text">
-                Заявка
-                <span>Вы оставляете заявку или звоните.</span>
-              </p>
-            </div>
-            <div className="principles_body_right_item">
-              <img src={ "/img/number/2.png"} alt="" />
-              <p className="big principles_body_right_item_text">
-                Анализ задачи
-                <span>
-                  Мы уточняем цели (суд, банк, продажа) и список документов.
-                </span>
-              </p>
-            </div>
-            <div className="principles_body_right_item">
-              <img src={ "/img/number/3.png"} alt="" />
-              <p className="big principles_body_right_item_text">
-                Договор и Оплата
-                <span>Честная цена без скрытых доплат.</span>
-              </p>
-            </div>
-            <div className="principles_body_right_item">
-              <img src={ "/img/number/4.png"} alt="" />
-              <p className="big principles_body_right_item_text">
-                Работа эксперта
-                <span>
-                  Выезд на объект (при необходимости) или дистанционный анализ.
-                </span>
-              </p>
-            </div>
-            <div className="principles_body_right_item">
-              <img src={ "/img/number/5.png"} alt="" />
-              <p className="big principles_body_right_item_text">
-                Готовый отчет
-                <span>
-                  Передача документов, соответствующих всем стандартам ФСО и
-                  ФЗ-135.
-                </span>
-              </p>
-            </div>
+
+          {/* Правая часть */}
+          <div className="workScheme-steps">
+            {steps.map((s, idx) => (
+              <div className="workScheme-step" key={idx}>
+                <div className="workScheme-num">{idx + 1}</div>
+
+                <div className="workScheme-text">
+                  <div className="workScheme-title">{s.title}</div>
+                  <div className="workScheme-sub">{s.text}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

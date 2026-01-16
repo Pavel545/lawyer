@@ -1,240 +1,222 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./header.css";
-import { Link, useLocation } from "react-router-dom";
-import { fizlic, yrid } from "../../data/basa";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { fizlic, yrid, general } from "../../data/basa";
 
 export function Headers() {
-  // отслеживаем состояние меню (открыто оно или закрыто)
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [adapt, setAdapt] = useState(false);
-  const [link, setLink] = useState(null);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  useEffect(() => {
-    if (adapt) {
-      document.querySelector("body").classList.add("fixed");
-    } else {
-      document.querySelector("body").classList.remove("fixed");
-    }
-  }, [adapt]);
-  useEffect(() => {
-    setLink(location.pathname);
-    const parts = ([] = location.pathname.split("/"));
-    document
-      .querySelector(".header_menu__link:nth-child(2)")
-      .classList.remove("loc");
+  const panelRef = useRef(null);
 
-    parts.forEach((element) => {
-      if (element === "uslugi") {
-        document
-          .querySelector(".header_menu__link:nth-child(2)")
-          .classList.add("loc");
+  // Единая структура секций (убираем дублирование)
+  const serviceSections = useMemo(
+    () => [
+      { title: "Услуги для юр. лиц", items: yrid },
+      { title: "Услуги для физ. лиц", items: fizlic },
+      { title: "Общие", items: general },
+    ],
+    []
+  );
+
+  // Закрывать меню при смене маршрута
+  useEffect(() => {
+    setServicesOpen(false);
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  // Блокируем скролл когда открыто мобильное меню
+  useEffect(() => {
+    document.body.classList.toggle("fixed", mobileOpen);
+    return () => document.body.classList.remove("fixed");
+  }, [mobileOpen]);
+
+  // Закрытие по Escape
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setServicesOpen(false);
+        setMobileOpen(false);
       }
-    });
-  }, [location]);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  // Закрытие по клику вне панели (для десктоп-меню услуг)
+  useEffect(() => {
+    const onDocClick = (e) => {
+      if (!servicesOpen) return;
+      if (!panelRef.current) return;
+
+      const isInside = panelRef.current.contains(e.target);
+      const isServicesBtn = e.target.closest?.(".js-services-btn");
+
+      if (!isInside && !isServicesBtn) setServicesOpen(false);
+    };
+
+    document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
+  }, [servicesOpen]);
+
+  const isServicesActive = location.pathname.startsWith("/uslugi");
 
   return (
-    <header className="header">
+    <header className="header header--fixed">
       <div className="header_menu">
-        <div className="container">
-          <Link className="header_logo" to="/">
-            <img src={ "/img/logo/logo4.png"} alt="" />
+        <div className="container header__row">
+          <Link className="header_logo" to="/" aria-label="На главную">
+            <img src="/img/logo/logo4.png" alt="Буржуй" />
           </Link>
-          <nav className="header_menu__link_box">
-            {/* <Link
-              className={
-                link === "/" ? "header_menu__link loc" : "header_menu__link"
-              }
-              to="/"
-            >
-              Главная
-            </Link> */}
-            <div
-              onClick={() => setMenuOpen(!menuOpen)}
-              className={
-                menuOpen
-                  ? "header_menu__link menus op"
-                  : "header_menu__link menus"
-              }
+
+          {/* Desktop nav */}
+          <nav className="header_menu__link_box" aria-label="Главное меню">
+            <p
+              type="button"
+              className={[
+                "header_menu__link",
+                "menus",
+                "js-services-btn",
+                servicesOpen ? "op" : "",
+                isServicesActive ? "loc" : "",
+              ].join(" ")}
+              onClick={() => setServicesOpen((v) => !v)}
+              aria-expanded={servicesOpen}
+              aria-controls="services-panel"
             >
               Услуги
-            </div>
-            <Link
-              className={
-                link === "/compani"
-                  ? "header_menu__link loc"
-                  : "header_menu__link"
-              }
+            </p>
+
+            <NavLink
               to="/compani"
+              className={({ isActive }) =>
+                isActive ? "header_menu__link loc" : "header_menu__link"
+              }
             >
               О компании
-            </Link>
-            <div
-              className={
-                menuOpen
-                  ? "header_menu__link_menu open"
-                  : "header_menu__link_menu "
-              }
-            >
-              <div className="header_menu__link_menu_bloc">
-                <Link to="/uslugi" onClick={() => setMenuOpen(false)} className="header_menu__link">
-                  Услуги для юр. лиц
-                </Link>
-                <nav>
-                  {yrid.map((e, i) => (
-                    <Link
-                      className="t16 link_menu"
-                      onClick={() => setMenuOpen(false)}
-                      key={i}
-                      to={`/uslugi/${e.direction}`}
-                    >
-                      {e.link}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-              <div className="header_menu__link_menu_bloc">
-                <Link to="/uslugi" onClick={() => setMenuOpen(false)} className="header_menu__link">
-                  Услуги для физ. лиц
-                </Link>
-                <nav>
-                  {fizlic.map((e, i) => (
-                    <Link
-                      className="t16 link_menu"
-                      onClick={() => setMenuOpen(false)}
-                      key={i}
-                      to={`/uslugi/${e.direction}`}
-                    >
-                      {e.link}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-              
-            </div>
-            <Link
-              className={
-                link === "/kontacts"
-                  ? "header_menu__link loc"
-                  : "header_menu__link"
-              }
+            </NavLink>
+
+            <NavLink
               to="/kontacts"
+              className={({ isActive }) =>
+                isActive ? "header_menu__link loc" : "header_menu__link"
+              }
             >
               Контакты
-            </Link>
+            </NavLink>
           </nav>
+
           <div className="header_info_contacts">
-            <a target="_blank" title="vk" href="https://vk.com/id808117030">
-              {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
-
-              <img src={ "/img/vk.png"} alt="vk" />
+            <a target="_blank" rel="noreferrer" title="VK" href="https://vk.com/id808117030">
+              <img src="/img/vk.png" alt="vk" />
             </a>
-            <a
-              target="_blank"
-              href="https://api.whatsapp.com/send?phone=79168868832"
-            >
-              {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
-              <img
-                src={ "/img/watsapp.png"}
-                alt="WatsApp"
-              />
+            <a target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=79168868832">
+              <img src="/img/watsapp.png" alt="WhatsApp" />
             </a>
-            <a target="_blank" href="https://t.me/+79168868832">
-              <img
-                src={ "/img/tg.png"}
-                alt="Telegram"
-              />
+            <a target="_blank" rel="noreferrer" href="https://t.me/+79168868832">
+              <img src="/img/tg.png" alt="Telegram" />
             </a>
-            <Link className="header_tel" to="tel:+79168868832">
+            <a className="header_tel" href="tel:+79168868832">
               +7 916 886 88 32
-            </Link>
+            </a>
           </div>
-          <div className="adaptiveMenu">
-            <div onClick={() => setAdapt(!adapt)} id="menu-bar">
-              <div id="bar1" className="bar"></div>
-              <div id="bar2" className="bar"></div>
-              <div id="bar3" className="bar"></div>
-            </div>
-            <div
-              className={adapt ? "adaptiveMenu_box active" : "adaptiveMenu_box"}
-            >
-              <Link className="header_menu__link" to="/">
-                Главная
-              </Link>
 
-              <div className="header_menu__link_menu_bloc">
-                <Link to="/uslugi" className="header_menu__link no">
-                  Услуги для физ. лиц
-                </Link>
-                <nav>
-                  {fizlic.map((e, i) => (
-                    <Link
-                      className="t16"
-                      key={i}
-                      to={`/uslugi/${e.direction}`}
-                    >
-                      {e.name}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-              <div className="header_menu__link_menu_bloc">
-                <Link to="/uslugi" className="header_menu__link no">
-                  Услуги для юр. лиц
-                </Link>
-                <nav>
-                  {yrid.map((e, i) => (
-                    <Link
-                      className="t16"
-                      key={i}
-                      to={`/uslugi/${e.direction}`}
-                    >
-                      {e.name}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-              <div className="footer_info_contacts">
-                <Link to="/compani" className="footer_link">
-                  О компании
-                </Link>
-                <br />
-                <Link to="/kontacts" className="footer_link">
-                  контакты
-                </Link>
-                <nav>
-                  <a className="header_tel" href="tel:+79168868832">
-                    +7 916 886 88 32
-                  </a>
-
-                  <div className="linksfot">
-                    <a href="https://vk.com/id808117030">
-                      {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
-                      <img
-                        src={ "/img/vk.png"}
-                        alt="vk"
-                      />
-                    </a>
-                    <a href="https://api.whatsapp.com/send?phone=79168868832">
-                      {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
-                      <img
-                        src={ "/img/watsapp.png"}
-                        alt="WatsApp"
-                      />
-                    </a>
-                    <a href="https://t.me/+79168868832">
-                      <img
-                        src={ "/img/tg.png"}
-                        alt="Telegram"
-                      />
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </div>
-          </div>
+          {/* Burger */}
+          <button
+            type="button"
+            className={mobileOpen ? "burger active" : "burger"}
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Открыть меню"
+            aria-expanded={mobileOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
       </div>
+
+      {/* Desktop dropdown panel */}
+      <div
+        id="services-panel"
+        ref={panelRef}
+        className={servicesOpen ? "servicesPanel open" : "servicesPanel"}
+      >
+        <div className="container servicesPanel__inner">
+          {serviceSections.map((section) => (
+            <div key={section.title} className="servicesPanel__col">
+              <NavLink to="/uslugi" className="servicesPanel__title">
+                {section.title}
+              </NavLink>
+
+              <nav className="servicesPanel__list">
+                {section.items.map((e, i) => (
+                  <NavLink
+                    key={i}
+                    to={`/uslugi/${e.direction}`}
+                    className="servicesPanel__link"
+                    onClick={() => setServicesOpen(false)}
+                  >
+                    {e.link ?? e.name}
+                  </NavLink>
+                ))}
+              </nav>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile overlay + drawer */}
+      <div className={mobileOpen ? "mOverlay open" : "mOverlay"} onMouseDown={() => setMobileOpen(false)} />
+      <aside className={mobileOpen ? "mDrawer open" : "mDrawer"} aria-label="Мобильное меню">
+        <div className="mDrawer__head">
+          <span className="mDrawer__title">Меню</span>
+          <button className="mDrawer__close" onClick={() => setMobileOpen(false)} aria-label="Закрыть">
+            ×
+          </button>
+        </div>
+
+        <nav className="mDrawer__nav">
+          <NavLink to="/" className="mDrawer__item">
+            Главная
+          </NavLink>
+          <NavLink to="/compani" className="mDrawer__item">
+            О компании
+          </NavLink>
+          <NavLink to="/kontacts" className="mDrawer__item">
+            Контакты
+          </NavLink>
+
+          <div className="mDrawer__divider" />
+
+          {serviceSections.map((section) => (
+            <div key={section.title} className="mDrawer__section">
+              <NavLink to="/uslugi" className="mDrawer__sectionTitle">
+                {section.title}
+              </NavLink>
+              <div className="mDrawer__sectionLinks">
+                {section.items.map((e, i) => (
+                  <NavLink key={i} to={`/uslugi/${e.direction}`} className="mDrawer__sub">
+                    {e.link ?? e.name}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          <div className="mDrawer__divider" />
+
+          <a className="mDrawer__phone" href="tel:+79168868832">
+            +7 916 886 88 32
+          </a>
+
+          <div className="mDrawer__social">
+            <a href="https://vk.com/id808117030"><img src="/img/vk.png" alt="vk" /></a>
+            <a href="https://api.whatsapp.com/send?phone=79168868832"><img src="/img/watsapp.png" alt="WhatsApp" /></a>
+            <a href="https://t.me/+79168868832"><img src="/img/tg.png" alt="Telegram" /></a>
+          </div>
+        </nav>
+      </aside>
     </header>
   );
 }

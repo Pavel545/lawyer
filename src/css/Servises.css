@@ -120,7 +120,7 @@ h3.services_faise_title {
   background-size: cover;
   position: relative;
 }
-.HelpYr::after{
+/* .HelpYr::after{
   content: '';
 
   position: absolute;
@@ -132,7 +132,7 @@ h3.services_faise_title {
   height: 100%;
   background: #0000009c;
 
-}
+} */
 .HelpYr * {
   z-index: 2;
 }
@@ -145,21 +145,25 @@ h3.services_faise_title {
 }
 .HelpYr_form {
   gap: 10px;
-  border: 2px solid #f5d962;
   width: 70%;
   padding: 26px;
   margin-top: 40px;
   margin-bottom: 30px;
+
+  background: #001a33;
+
+  align-items: flex-start;
 }
 .HelpYr_form_input {
   padding: 10px;
   background: none;
-  border: 2px solid #f8fdff;
+  border: 0px solid #f8fdff;
   width: 100%;
   color: #f8fdff;
+  background: #ffffff33;
 }
 .HelpYr_form_input::placeholder {
-  color: #f8fdff;
+  color: #f8fdffaa;
 }
 .HelpYr_form_input:focus-visible,
 textarea:focus-visible {
@@ -190,12 +194,13 @@ textarea:focus-visible {
   justify-self: flex-start;
 }
 .HelpYr_form_place {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 135%;
-  text-align: center;
-  color: #f8fdff;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: #ffffffb1;
+  text-align: start;
 }
 /* RangeServices */
 .RangeServices {
@@ -441,7 +446,7 @@ textarea:focus-visible {
 .RangeServices .uslug > div p {
   font-style: normal;
   font-weight: 500;
-     font-size: clamp(14px, 2rem, 23px);
+  font-size: clamp(14px, 2rem, 23px);
   line-height: 130%;
   display: flex;
   align-items: center;

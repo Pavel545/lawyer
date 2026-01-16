@@ -40,13 +40,6 @@
     line-height: 70px;
   }
 
-  .header_menu__link_box {
-    width: 50%;
-    margin: 0;
-  }
-  .header_menu__link {
-    font-size: 19px;
-  }
   /* .open {
         bottom: -286px;
         left: -312px;
@@ -84,8 +77,10 @@
   }
   .HelpYr_slogan {
     font-size: 28px;
-    line-height: 30px;
+    line-height: 30px;  
     width: 80%;
+
+    text-align: start;
   }
   .HelpYr_form h2 {
     font-size: 27px;
@@ -133,79 +128,19 @@
   }
 }
 @media only screen and (max-width: 1000px) {
-  .header_info_contacts {
-    display: none;
-  }
-  .header_menu__link_box {
-    display: none;
-  }
-  .adaptiveMenu {
-    display: block;
-  }
+
+
+
   .goals-content {
     grid-template-columns: 1fr;
   }
 
-  .bar {
-    height: 5px;
-    background: linear-gradient(
-      123.38deg,
-      #d4ae44 -1.21%,
-      #ebe077 -1.2%,
-      #bb8d2b -1.19%,
-      #ae8328 -1.18%,
-      #fbf89c -1.17%,
-      #f5d962 29.58%,
-      #ffff91 49.3%,
-      #d6be57 79.12%,
-      #c5a33f 91.15%
-    );
+  
 
-    display: block;
-    transition: 0.3s ease;
-    margin-top: 5px;
-  }
-  .bar:nth-child(1) {
-    width: 100%;
-  }
-  .bar:nth-child(2) {
-    width: 70%;
-  }
-  .bar:nth-child(3) {
-    width: 100%;
-  }
-  #menu-bar {
-    width: 90px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 14px;
-  }
-  #menu-bar:hover .bar {
-    width: 100%;
-  }
   .header_menu__link_menu_bloc nav {
     grid-template-columns: 1fr;
   }
-  .adaptiveMenu_box {
-    display: flex;
-    position: fixed;
-    background: var(--color-3);
-    flex-direction: column;
-    gap: 30px;
-    right: 0;
-    top: 95px;
-    overflow: hidden;
-    width: 0px;
-    transition: 500ms;
-    height: 89vh;
-    z-index: 99999;
-  }
-  .adaptiveMenu_box.active {
-    padding: 20px;
-    width: 100%;
-  }
+ 
   .header_menu__link_menu_bloc {
     height: auto;
   }
@@ -274,11 +209,15 @@
   }
   .legalServices_box {
     grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
   .uslug {
     padding: 10px;
     width: 100%;
     justify-content: flex-start;
+  }
+  .weWork_content{
+    row-gap: 30px;
   }
   .principles_body_right {
     margin-bottom: 40px;
@@ -394,6 +333,9 @@
   }
   .faceBloc-text.gold {
     line-height: 120%;
+    padding: 0 10px;
+            font-size: 16px;
+            text-align: center;
   }
   .popup_goode {
     gap: 15px;
@@ -446,9 +388,7 @@
   .services_faise_img {
     padding-bottom: 0;
   }
-  .legalServices_box {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
   .weWork_content_item span {
     font-size: 18px;
     line-height: 24.3px;
@@ -456,10 +396,7 @@
   .weWork_content_item {
     max-width: 100%;
   }
-  .adaptiveMenu_box.active {
-    overflow-y: scroll;
-    max-height: 100%;
-  }
+ 
   .principles_body_right_item_text span {
     width: 90%;
     line-height: 16.2px;
@@ -540,16 +477,9 @@
     font-size: 7px;
   }
 
-  .bar {
-    height: 2px;
-  }
-  .adaptiveMenu_box {
-    top: 82px;
-  }
-  #menu-bar {
-    width: 50px;
-    gap: 6px;
-  }
+ 
+ 
+
   .contact_map_info_link {
     padding: 10px 0px;
   }
@@ -569,6 +499,7 @@
   }
   .HelpYr_form {
     width: 100%;
+
   }
   section.services_faise {
     padding-top: 0px;

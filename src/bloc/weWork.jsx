@@ -20,24 +20,32 @@ export function WeWork(params) {
         <h2>НАДЕЖНЫЙ ПАРТНЕР В СЛОЖНЫХ ВОПРОСАХ</h2>
         <div className="weWork_content">
           <div data-item="1" className="weWork_content_item">
-            <span > <span className="gold">Опыт и Стабильность:</span>
-               13 лет на рынке. Штатные сотрудники с квалификационными аттестатами (сдаем экзамены каждые 3 года).
-            </span>
+            <p>
+              {" "}
+              <span>Опыт и Стабильность:</span>
+              13 лет на рынке. Штатные сотрудники с квалификационными
+              аттестатами (сдаем экзамены каждые 3 года)
+            </p>
           </div>
           <div data-item="2" className="weWork_content_item">
-            <span>
-              <span className="gold">География:</span>
-               Работаем по всей россии <br /><br /><br /> 
-            </span>
+            <p>
+              <span>Глубокий анализ:</span>
+              Мы сразу подсвечиваем слабые места и риски. Наша цель — не просто
+              сдать бумагу, а защитить ваши интересы <br />
+              <br />
+              <br />
+            </p>
           </div>
           <div data-item="3" className="weWork_content_item">
-            
-            <span><span className="gold">Глубокий анализ:</span> Мы сразу подсвечиваем слабые места и риски. Наша цель — не просто сдать бумагу, а защитить ваши интересы.</span>
+            <p>
+              <span>География:</span> Работаем по всей России
+            </p>
           </div>
           <div data-item="4" className="weWork_content_item">
-            <span>
-              <span className="gold">Ответственность:</span>
-               Нас не нужно контролировать. Соблюдение сроков — наш принцип.</span>
+            <p>
+              <span>Ответственность:</span>
+              Нас не нужно контролировать. Соблюдение сроков — наш принцип
+            </p>
           </div>
           {/* <div data-item="5" className="weWork_content_item">
             <span>Разработка стратегии по делу </span>

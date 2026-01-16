@@ -1,0 +1,905 @@
+.sectionPad {
+  padding: 90px 0;
+}
+
+.aboutBlock,
+.principles,
+.geo,
+.docs,
+.steps,
+.cta {
+  position: relative;
+}
+
+/* Общая “карточная” стилистика */
+.aboutBlock-card,
+.principleCard,
+.geo-card,
+.docCard,
+.stepCard {
+  background: #ffffff;
+  padding: 26px 26px;
+  box-shadow: 0 10px 30px rgba(16, 39, 70, 0.10);
+}
+
+.aboutBlock-card.accent,
+.geo-card.accent {
+  border: 1px solid rgba(180, 133, 37, 0.35);
+  background: linear-gradient(180deg, rgba(255, 228, 98, 0.12), rgba(255, 255, 255, 1));
+}
+
+/* Блок 3 */
+.aboutBlock-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 25px;
+}
+
+.aboutBlock-title {
+  margin-bottom: 14px;
+}
+
+/* Списки с “золотой” точкой */
+.listGold {
+  margin-top: 12px;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.listGold li {
+  position: relative;
+  padding-left: 18px;
+  text-align: start;
+}
+
+.listGold li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f5d962;
+  box-shadow: 0 0 0 3px rgba(245, 217, 98, 0.25);
+}
+
+.listGold.ol {
+  counter-reset: goldOl;
+}
+.listGold.ol li {
+  padding-left: 28px;
+}
+.listGold.ol li::before {
+  content: counter(goldOl) ".";
+  counter-increment: goldOl;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  top: 0;
+  color: #b48525;
+  font-weight: 600;
+}
+
+/* Блок 4 */
+.principles-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.principleCard-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.principleCard-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #003840;
+  background: #ffe462;
+}
+
+.principleCard-title {
+  margin: 0;
+  font-size: 22px;
+  line-height: 125%;
+}
+
+/* Блок 5 */
+.geo-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.geo-title {
+  margin-bottom: 12px;
+}
+
+/* Блок 6 */
+.docs-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.docCard {
+  padding: 18px;
+}
+
+.docCard-imgWrap {
+  width: 100%;
+  height: 540px;
+  overflow: hidden;
+  background: #f8fdff;
+  border: 1px solid rgba(16, 39, 70, 0.08);
+}
+
+.docCard-imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.docCard-title {
+  margin-top: 25px;
+  font-weight: Bold;
+  text-align: start;
+  color: #003840;
+
+  text-transform: uppercase;
+}
+
+/* Лого банков */
+.bankRow {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+}
+
+.bankLogo {
+  width: 150px;
+  height: 70px;
+  border-radius: 14px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(16, 39, 70, 0.08);
+  border: 1px solid rgba(16, 39, 70, 0.06);
+  padding: 10px;
+}
+
+.bankLogo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Блок 7 */
+.steps-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.stepCard-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.stepNum {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background: #102746;
+  color: #fff;
+}
+
+.stepTitle {
+  margin: 0;
+  font-size: 22px;
+  line-height: 125%;
+  color: #b48525;
+}
+
+/* Блок 8 */
+.cta-inner {
+  border-radius: 22px;
+  padding: 40px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  background: linear-gradient(180deg, rgba(16, 39, 70, 0.92), rgba(16, 39, 70, 0.78));
+  box-shadow: 0 18px 40px rgba(16, 39, 70, 0.18);
+}
+
+.cta .h2,
+.cta p {
+  color: #f8fdff;
+}
+
+.cta p.big {
+  color: #f8fdff;
+  opacity: 0.95;
+}
+
+/* Адаптив */
+@media (max-width: 1400px) {
+  .container { width: 92%; }
+}
+
+@media (max-width: 1100px) {
+  .aboutBlock-grid { grid-template-columns: 1fr; }
+  .principles-grid { grid-template-columns: 1fr; }
+  .geo-grid { grid-template-columns: 1fr; }
+  .docs-grid { grid-template-columns: 1fr 1fr; }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 700px) {
+  .sectionPad { padding: 60px 0; }
+  .docs-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .cta-inner { padding: 26px; }
+  button { width: 100%; }
+}
+
+
+/* =========================
+   ДЕКОР ДЛЯ ЗАГОЛОВКОВ (в стиле “золото”)
+   ========================= */
+
+.h2-decor {
+  display: inline-block;
+  position: relative;
+  padding: 0 0 22px 0;
+}
+
+.h2-decor::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  width: min(320px, 85%);
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    9deg,
+    #f5d962 -1.21%,
+    #d4ae44 5.25%,
+    #a8751a 8.27%,
+    #bb8d2b 14.88%,
+    #9f6b14 21.64%,
+    #ae8328 30.44%,
+    #ebe077 43.39%,
+    #ffff91 57.92%,
+    #fbf89c 79.52%,
+    #c5a33f 91.15%,
+    #d6be57 91.15%
+  );
+  opacity: 0.95;
+}
+
+/* маленькие “блики” по краям линии */
+.h2-decor::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  width: min(440px, 92%);
+  height: 18px;
+  background: radial-gradient(closest-side, rgba(245, 217, 98, 0.35), transparent 70%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+
+/* =========================
+   ОБЩИЙ ФОН СЕКЦИЙ (мягко, не ломая твой стиль)
+   ========================= */
+
+.aboutBlock,
+.principles,
+.geo,
+.docs,
+.steps {
+  position: relative;
+  background: linear-gradient(180deg, rgba(248, 253, 255, 1), rgba(248, 253, 255, 0.65));
+}
+
+
+.aboutBlock .container,
+.principles .container,
+.geo .container,
+.docs .container,
+.steps .container {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================
+   CTA: ВИЗУАЛЬНО ОТДЕЛЯЕМ ОТ БЕЛОГО FOOTER
+   ========================= */
+
+.cta {
+  position: relative;
+  /* Сильнее отличаемся от белого футера: темная подложка */
+  background: linear-gradient(180deg, #0e223b 0%, #102746 55%, #0b1a2d 100%);
+  padding-bottom: 120px; /* “воздух” перед футером */
+}
+
+/* Золотая разделительная линия сверху CTA */
+.cta-sep::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(
+    9deg,
+    #f5d962 -1.21%,
+    #d4ae44 5.25%,
+    #a8751a 8.27%,
+    #bb8d2b 14.88%,
+    #9f6b14 21.64%,
+    #ae8328 30.44%,
+    #ebe077 43.39%,
+    #ffff91 57.92%,
+    #fbf89c 79.52%,
+    #c5a33f 91.15%,
+    #d6be57 91.15%
+  );
+  opacity: 0.9;
+}
+
+/* Мягкие “световые пятна” на фоне CTA */
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(800px 240px at 15% 35%, rgba(255, 228, 98, 0.22), transparent 60%),
+    radial-gradient(900px 280px at 85% 50%, rgba(255, 255, 255, 0.10), transparent 65%);
+  opacity: 1;
+}
+
+/* Поднимаем внутренний блок CTA, чтобы выглядел как “премиум карточка” */
+.cta-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: 22px;
+  padding: 46px 46px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(245, 217, 98, 0.22);
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 228, 98, 0.12) inset;
+  backdrop-filter: blur(6px);
+}
+
+/* CTA-типографика */
+.cta .h2,
+.cta p,
+.cta p.big {
+  color: #f8fdff;
+}
+
+.cta p.big {
+  opacity: 0.95;
+}
+
+/* На случай если footer белый: добавляем “тень-переход” снизу CTA */
+.cta {
+  box-shadow: 0 40px 60px rgba(16, 39, 70, 0.20);
+}
+.cta .h2{
+    width: auto;
+}
+/* Адаптив */
+@media (max-width: 1100px) {
+  .cta { padding-bottom: 90px; }
+  .cta-inner { padding: 28px; }
+}
+@media (max-width: 700px) {
+  .cta { padding-bottom: 70px; }
+  .cta-inner { padding: 22px; }
+}
+
+
+/* =========================
+   ABOUT (как на скрине)
+   ========================= */
+.aboutNew-title,
+.principlesNew-title,
+.docsNew-title,
+.stepsNew-title {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+  color: #003840;
+}
+
+.aboutNew-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.aboutNew-left p {
+  text-align: start;
+}
+
+.aboutNew-lead {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
+.aboutNew-accent {
+  color: #b48525;
+}
+
+.aboutNew-text {
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 100%;
+  opacity: 0.95;
+}
+
+.aboutNew-spec {
+  margin-top: 80px;
+}
+
+.aboutNew-specTitle {
+  font-weight: 700;
+  font-size: 25px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #003840;
+  margin-bottom: 10px;
+  text-align: start;
+}
+
+.aboutNew-right {
+  display: flex;
+  justify-content: center;
+}
+
+.aboutNew-media {
+  position: relative;
+  width: min(520px, 100%);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(16, 39, 70, 0.10);
+  border: 1px solid rgba(16, 39, 70, 0.08);
+  background: #f8fdff;
+}
+
+.aboutNew-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.aboutNew-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 74px;
+  height: 74px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 1;
+  color: #003840;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+.aboutNew-play:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* =========================
+   PRINCIPLES (упрощенные карточки)
+   ========================= */
+
+   .principlesNew{
+    background: #FAFAFA;
+   }
+.principlesNew-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.principlesNew-card {
+  background: #fff;
+  border: 1px solid rgba(16, 39, 70, 0.10);
+  border-radius: 0; /* как на скрине ближе к “плитке” */
+  padding: 26px 22px 22px;
+  position: relative;
+  min-height: 160px;
+
+  padding-top: 130px;   /* отводим место под номер */
+}
+
+.principlesNew-num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  
+}
+
+.principlesNew-cardTitle {
+  margin-top: 28px;
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #003840;
+  text-align: start;
+  line-height: 120%;
+  min-height: 60px;
+}
+
+.principlesNew-cardText {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #676767;
+    margin-top: 40px;
+    text-align: start;
+}
+
+/* =========================
+   GEO (фон + оверлей как на скрине)
+   ========================= */
+.geoNew {
+  padding: 90px 0;
+  overflow: hidden;
+}
+
+.geoNew-bg,
+.ctaNew-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.geoNew-bg img,
+.ctaNew-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+.geoNew-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.geoNew-title {
+  color: #fff !important;
+}
+
+.geoNew-text {
+  margin-top: 12px;
+  max-width: 900px;
+  color: rgba(248, 253, 255, 0.92);
+  text-align: center;
+
+  margin: 0 auto;
+}
+
+.geoNew-cards {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.geoNew-card {
+  padding: 18px 18px;
+
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.geoNew-cardLabel {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 25px;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 8px;
+  text-align: center;
+
+  max-width: 460px;
+}
+
+.geoNew-cardBody {
+  color: rgba(255,255,255,0.9);
+  font-size: 13px;
+  line-height: 150%;
+  text-align: center;
+}
+
+/* =========================
+   DOCS + grayscale logos row
+   ========================= */
+.docsNew-grid3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.docsNew-logos {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+.docsNew-logo {
+  width: 120px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.docsNew-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* =========================
+   STEPS (как на скрине: фото слева, список справа)
+   ========================= */
+.stepsNew-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.stepsNew-media {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(16, 39, 70, 0.10);
+  border: 1px solid rgba(16, 39, 70, 0.08);
+  background: #f8fdff;
+  height: 320px;
+}
+
+.stepsNew-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.stepsNew-list {
+  border: 1px solid rgba(16, 39, 70, 0.10);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.stepsNew-item {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 14px;
+  padding: 16px 16px;
+  border-bottom: 1px solid rgba(16, 39, 70, 0.10);
+}
+
+.stepsNew-item:last-child {
+  border-bottom: none;
+}
+
+.stepsNew-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(
+    123.38deg,
+    #d4ae44 -1.21%,
+    #ebe077 -1.2%,
+    #bb8d2b -1.19%,
+    #ae8328 -1.18%,
+    #fbf89c -1.17%,
+    #f5d962 29.58%,
+    #ffff91 49.3%,
+    #d6be57 79.12%,
+    #c5a33f 91.15%
+  );
+}
+
+.stepsNew-itemTitle {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #003840;
+  text-align: start;
+}
+
+.stepsNew-itemSub {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 150%;
+  opacity: 0.9;
+  text-align: start;
+}
+
+/* =========================
+   CTA + FORM (как на скрине)
+   ========================= */
+.ctaNew {
+  position: relative;
+  padding: 90px 0;
+  overflow: hidden;
+}
+
+.ctaNew-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(10, 22, 36, 0.78);
+}
+
+.ctaNew-content {
+  position: relative;
+  z-index: 2;
+}
+
+.ctaNew-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: stretch;
+}
+
+.ctaNew-left {
+  padding: 26px;
+}
+
+.ctaNew-title {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 120%;
+  text-align: start;
+}
+
+.ctaNew-text {
+  margin-top: 14px;
+  color: rgba(248,253,255,0.92);
+  text-align: start;
+}
+
+.ctaNew-form {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  padding: 22px;
+  backdrop-filter: blur(6px);
+}
+
+.ctaNew-formTitle {
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: start;
+}
+
+.ctaNew-formSub {
+  margin-top: 8px;
+  color: rgba(248,253,255,0.86);
+  font-size: 13px;
+  text-align: start;
+}
+
+.ctaNew-input {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  outline: none;
+  text-align: start;
+}
+
+.ctaNew-input::placeholder {
+  color: rgba(255,255,255,0.65);
+}
+
+.ctaNew-textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.ctaNew-note {
+  margin-top: 10px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  text-align: start;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 1100px) {
+  .aboutNew-grid { grid-template-columns: 1fr; }
+  .principlesNew-grid { grid-template-columns: 1fr; }
+  .geoNew-cards { grid-template-columns: 1fr; }
+  .stepsNew-grid { grid-template-columns: 1fr; }
+  .ctaNew-grid { grid-template-columns: 1fr; }
+  .stepsNew-media { height: 260px; }
+}
+
+@media (max-width: 700px) {
+  .docsNew-grid3 { grid-template-columns: 1fr; }
+  .aboutNew-media { aspect-ratio: 1 / 1; }
+  .ctaNew-left { padding: 0; }
+}

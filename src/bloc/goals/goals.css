@@ -1,11 +1,26 @@
 .goals {
   padding: 120px 0;
-  background: var(--color-1);
 
-  background: url(/public/img/fon_sect.png);
-
+  position: relative;
+  overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.goals::after {
+  content: "";
+  position: absolute;
+ top: -10px;
+  left:-10px;
+  right: 0;
+  bottom: 0;
+  width: 110%;
+  height: 110%;
+   background: url(/public/img/fon_sect.png);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: blur(5px);
 }
 
 .goals h2 {
@@ -34,7 +49,7 @@
 
 .goals-item {
   display: flex;
-
+  flex-direction: column;
   gap: 20px;
   margin: 15px;
   padding: 15px;
@@ -45,6 +60,12 @@
   -webkit-border-image: var(--color-gold);
   border-image-slice: 1; */
 }
+.goals-item h3 {
+  color: #fff;
+  text-transform: uppercase;
+
+  text-align: start;
+}
 .goals-item p {
   color: var(--color-3);
   font-size: var(--fs-24);
@@ -53,5 +74,18 @@
 .goals-item-icon {
   background: var(--color-gold);
   padding: 5px;
-  height: min-content;
+  height: 59px;
+
+  width: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px  ;
+}
+
+.goals-item-icon svg{
+  width: 100%;
+  height: 100%;
 }

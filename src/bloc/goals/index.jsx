@@ -11,16 +11,16 @@ export default function Goals(params) {
     {
       title: "Для Суда",
       description:
-        "Судебная экспертиза, рецензирование отчетов других оценщиков.",
+        "Судебная экспертиза, рецензия судебной экспертизы",
       icon: Scale,
     },
     {
       title: "Для Налоговой и Госструктур",
-      description: "Оспаривание кадастра, внесение в уставной капитал.",
+      description: "Подтверждение стоимости сделки при купле-продаже, стоимости имущества для обеспечения.",
       icon: Building2,
     },
     {
-      title: "Для Личных целей",
+      title: "Для НАСЛЕДСТВА",
       description: "Наследство, раздел имущества, купля-продажа.",
       icon: Users,
     },
@@ -38,10 +38,10 @@ export default function Goals(params) {
               <div key={index} className="goals-item-contain">
                 <div  className="goals-item ">
                   <div className="goals-item-icon">
-                    <Icon className="w-6 h-6 text-[#0a2540]" strokeWidth={2} />
+                    <Icon className=" text-[#0a2540]" strokeWidth={2} />
                   </div>
                   <div>
-                    <h3 className="gold">{purpose.title}</h3>
+                    <h3 >{purpose.title}</h3>
                     <p className="">{purpose.description}</p>
                   </div>
               </div>

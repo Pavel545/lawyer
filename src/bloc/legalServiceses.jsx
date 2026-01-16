@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { fizlic, yrid } from "../data/basa";
+import { fizlic, yrid, general } from "../data/basa";
 import { Link, NavLink } from "react-router-dom";
 
 export function LegalServices() {
@@ -68,6 +68,19 @@ export function LegalServices() {
           <h3>Физическим лицам</h3>
           <div className="legalServices_box">
             {fizlic.map((e, i) => (
+              <Legal
+                key={i}
+                direction={e.direction}
+                name={e.name}
+                mini={e.mini}
+                img={e.img}
+              />
+            ))}
+          </div>
+
+          <h3>Общее</h3>
+          <div className="legalServices_box">
+            {general.map((e, i) => (
               <Legal
                 key={i}
                 direction={e.direction}

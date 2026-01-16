@@ -65,7 +65,7 @@ export function HelpYr(params) {
             rows="10"
           ></textarea>
           <button data-type="Оставить заявку">Оставить заявку</button>
-          <p className="HelpYr_form_place">Позвоним в течение часа</p>
+          <p className="HelpYr_form_place">Нажимая кнопку “Оставить заявку”, Вы подтверждаете что ознакомились с Правилами обработки персональных данных</p>
         </form>
         <div style={!form? {display:"none"}:{}}  className="HelpYr_form">
           <h3 style={{color:"#fff"}}>

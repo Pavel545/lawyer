@@ -44,24 +44,23 @@ export function Services() {
           <div className="services_faise_box">
             <div className="services_faise_img">
               <video
-          autoPlay
-          loop
-          muted
-          pip="false"
-          playsInline
-          className="services_faise_img"
-          poster={`/img/servies/${current.title}.webp`}
-        >
-          <source
-            src={ `/video/servies/${current.title}.webm`}
-            type="video/webm"
-          />
-          <source
-            src={ `/video/servies/${current.title}.mp4`}
-            type="video/mp4"
-          />
-        </video>
-              
+                autoPlay
+                loop
+                muted
+                pip="false"
+                playsInline
+                className="services_faise_img"
+                poster={`/img/servies/${current.title}.webp`}
+              >
+                <source
+                  src={`/video/servies/${current.title}.webm`}
+                  type="video/webm"
+                />
+                <source
+                  src={`/video/servies/${current.title}.mp4`}
+                  type="video/mp4"
+                />
+              </video>
             </div>
             <div className="services_faise_text">
               <h3

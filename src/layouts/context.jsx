@@ -12,9 +12,17 @@ export const AppProvider = ({ children }) => {
     setActive(!active);
     setDataType(type);
     settitle(title)
+    if (!active) {
+      document.body.style.overflow = "hidden";
+    } 
+  }
+
+  const closePop = () => {
+    setActive(false);
+    document.body.style.overflow = "auto";
   }
   return (
-    <AppContext.Provider value={{ active, setActive, datatype, setDataType, PopGo, title, settitle }}>
+    <AppContext.Provider value={{ active, setActive, datatype, setDataType, PopGo, title, settitle, closePop }}>
       {children}
     </AppContext.Provider>
   );
