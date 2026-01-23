@@ -41,7 +41,6 @@
   margin: 60px 0;
 }
 .goals-item-contain {
-  /* background: var(--color-3); */
 
   height: 100%;
   position: relative;
@@ -54,11 +53,8 @@
   margin: 15px;
   padding: 15px;
   height: -webkit-fill-available;
-  /* border: 2px solid; */
 
-  /* border-image: var(--color-gold);
-  -webkit-border-image: var(--color-gold);
-  border-image-slice: 1; */
+
 }
 .goals-item h3 {
   color: #fff;

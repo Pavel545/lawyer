@@ -77,7 +77,7 @@
   }
   .HelpYr_slogan {
     font-size: 28px;
-    line-height: 30px;  
+    line-height: 30px;
     width: 80%;
 
     text-align: start;
@@ -128,19 +128,14 @@
   }
 }
 @media only screen and (max-width: 1000px) {
-
-
-
   .goals-content {
     grid-template-columns: 1fr;
   }
 
-  
-
   .header_menu__link_menu_bloc nav {
     grid-template-columns: 1fr;
   }
- 
+
   .header_menu__link_menu_bloc {
     height: auto;
   }
@@ -216,7 +211,7 @@
     width: 100%;
     justify-content: flex-start;
   }
-  .weWork_content{
+  .weWork_content {
     row-gap: 30px;
   }
   .principles_body_right {
@@ -334,8 +329,8 @@
   .faceBloc-text.gold {
     line-height: 120%;
     padding: 0 10px;
-            font-size: 16px;
-            text-align: center;
+    font-size: 16px;
+    text-align: center;
   }
   .popup_goode {
     gap: 15px;
@@ -396,7 +391,7 @@
   .weWork_content_item {
     max-width: 100%;
   }
- 
+
   .principles_body_right_item_text span {
     width: 90%;
     line-height: 16.2px;
@@ -477,9 +472,6 @@
     font-size: 7px;
   }
 
- 
- 
-
   .contact_map_info_link {
     padding: 10px 0px;
   }
@@ -499,7 +491,6 @@
   }
   .HelpYr_form {
     width: 100%;
-
   }
   section.services_faise {
     padding-top: 0px;

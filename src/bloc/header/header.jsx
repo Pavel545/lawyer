@@ -14,7 +14,7 @@ export function Headers() {
     () => [
       { title: "Услуги для юр. лиц", items: yrid },
       { title: "Услуги для физ. лиц", items: fizlic },
-      { title: "Общие", items: general },
+      { title: "Услуги общие", items: general },
     ],
     []
   );

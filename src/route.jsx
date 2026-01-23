@@ -8,6 +8,7 @@ import { Error404 } from "./pages/404";
 import AppLayout from "./layouts";
 import Compani from "./pages/compani";
 import { Suspense } from "react";
+import { PrivacyPolicy } from "./pages/privacy";
 
 const Router = () => {
   const router = createBrowserRouter(
@@ -37,6 +38,12 @@ const Router = () => {
             path: `/compani`,
             element: <Suspense>
               <Compani />
+            </Suspense>,
+          },
+          {
+            path: `/privacy`,
+            element: <Suspense>
+              <PrivacyPolicy />
             </Suspense>,
           },
           {

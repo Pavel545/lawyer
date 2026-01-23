@@ -1,6 +1,6 @@
 import { HashLink as Link } from "react-router-hash-link";
 import "../css/footer.css";
-import { fizlic, yrid } from "../data/basa";
+import { fizlic, general, yrid } from "../data/basa";
 import { NavLink } from "react-router-dom";
 
 export function Footer(params) {
@@ -43,6 +43,18 @@ export function Footer(params) {
                   Услуги для юр. лиц
                 </Link>
                 {yrid.map((e, i) => (
+                  <Link className="" key={i} to={`/uslugi/${e.direction}`}>
+                    {e.link}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+            <div className="footer_navigate">
+              <nav className="nav_tab nt_active">
+                <Link className="footer_link" to="/#legalServices_yr">
+                  Услуги общие
+                </Link>
+                {general.map((e, i) => (
                   <Link className="" key={i} to={`/uslugi/${e.direction}`}>
                     {e.link}
                   </Link>
@@ -102,9 +114,9 @@ export function Footer(params) {
         </div>
 
         <div className="footer_f">
-          <a href="">Политика конфиденциальности</a>
+          <a href="/privacy">Политика конфиденциальности</a>
           <a href="">© «Финэкс» 2025</a>
-          <a href="">Разработка сайта:</a>
+          <a href="https://acr-agency.ru/">Разработка сайта: АЦР</a>
         </div>
       </div>
     </footer>

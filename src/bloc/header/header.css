@@ -4,17 +4,14 @@
   border-bottom: 2px solid var(--color-2);
 }
 
-/* фиксируем шапку: */
 .header--fixed {
-  position: sticky; /* лучше чем fixed: меньше проблем */
+  position: sticky; 
   top: 0;
   background: var(--color-3);
 }
 
-/* если хочешь строго fixed:
-.header--fixed { position: fixed; top:0; left:0; width:100%; }
-и тогда добавь отступ сверху у контента (padding-top) */
-*/ .header_menu {
+
+.header_menu {
   background: var(--color-3);
 }
 

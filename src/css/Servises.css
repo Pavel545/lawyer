@@ -23,6 +23,18 @@ h3.services_faise_title {
   position: sticky;
   top: 10px;
   overflow: hidden;
+  
+}
+
+
+.services_faise_list {
+  margin: 12px 0;
+  padding-left: 20px;
+}
+
+.services_faise_list li {
+  margin: 6px 0;
+  line-height: 1.4;
 }
 .blu {
   color: #003840;

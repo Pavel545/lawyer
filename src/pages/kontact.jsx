@@ -5,7 +5,7 @@ import { LineContact } from "../bloc/line_contant";
 import {  useState } from "react";
 
 export function Kontacts() {
-  const [first, setfirst] = useState([55.740117,37.565874])
+  const [first, setfirst] = useState([55.800595, 37.636680]);
  
   const mapState = { center:first, zoom: 17 };
   return (
@@ -17,21 +17,19 @@ export function Kontacts() {
           <div className="contact_map_info">
             <div className="contact_map_info_box">
               <p className="contact_map_info_name">Центральный офис:</p>
-              <p onClick={()=>setfirst([55.740117,37.565874])}
+              <p onClick={()=>setfirst([55.800595, 37.636680])}
                 className="contact_map_info_link"
               >
-                г. Москва, <br />
-                Бережковская наб., д. 6, офис 24
+                129626, город Москва,<br /> пр-кт Мира, д. 102 к. 1, помещ. 3/7 
               </p>
             </div>
             <div className="contact_map_info_box">
               <p className="contact_map_info_name">Доп. офис:</p>
               
-              <p onClick={()=>setfirst([55.747115,37.539087])}
+              <p onClick={()=>setfirst([54.294223, 48.375060])}
                 className="contact_map_info_link"
               >
-                г. Москва, <br />
-                наб. Пресненская, д. 8, стр. 1, помещ. 7Н/8
+                432063, Ульяновская область, город Ульяновск,<br /> ул. Кирова, д.99
               </p>
             </div>
             <div className="contact_map_info_box">
@@ -57,7 +55,7 @@ export function Kontacts() {
                     iconLayout: "default#image",
                     iconImageHref:  "/map.png",
                     iconImageSize: [70, 70],
-                    iconImageOffset: [-3, -42],
+                    iconImageOffset: [-40, -42],
                   }}
                 ></Placemark>
               </Map>

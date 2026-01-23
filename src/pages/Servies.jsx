@@ -62,21 +62,36 @@ export function Services() {
                 />
               </video>
             </div>
-            <div className="services_faise_text">
-              <h3
-                className="services_faise_title"
-                dangerouslySetInnerHTML={{ __html: current.text }}
-              ></h3>
-              <p
-                className="services_faise_text"
-                dangerouslySetInnerHTML={{ __html: current.text2 }}
-              ></p>
+           <div className="services_faise_text">
+              {current.text && (
+                <p
+                  className="services_faise_text"
+                  dangerouslySetInnerHTML={{ __html: current.text }}
+                />
+              )}
+
+              <div className="services_faise_text">
+                {Array.isArray(current.list) && current.list.length > 0 && (
+                <ul className="services_faise_list">
+                  {current.list.map((item, idx) => (
+                    <li key={`${current.title}-li-${idx}`}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              </div>
+
+              {current.text2 && (
+                <p
+                  className="services_faise_text"
+                  dangerouslySetInnerHTML={{ __html: current.text2 }}
+                />
+              )}
 
               {current.textEnd && (
                 <p
                   className="services_faise_text"
                   dangerouslySetInnerHTML={{ __html: current.textEnd }}
-                ></p>
+                />
               )}
             </div>
           </div>

@@ -1,7 +1,6 @@
 import { useAppContext } from "../layouts/context";
 
 import "../css/compani.css";
-import { LineContact } from "../bloc/line_contant";
 import { HelpYr } from "../bloc/hellpYr";
 export default function Compani() {
   const { PopGo } = useAppContext();
@@ -231,7 +230,7 @@ export default function Compani() {
       </section>
 
       {/* БЛОК 6: Документы и аккредитации */}
-      <section className="docs sectionPad docsNew">
+      <section id='accreditation' className="docs sectionPad docsNew">
         <div className="container">
           <h2 className="h2 docsNew-title">ДОКУМЕНТЫ И АККРЕДИТАЦИИ</h2>
 

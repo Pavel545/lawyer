@@ -556,12 +556,12 @@
 .principlesNew-card {
   background: #fff;
   border: 1px solid rgba(16, 39, 70, 0.10);
-  border-radius: 0; /* как на скрине ближе к “плитке” */
+  border-radius: 0; 
   padding: 26px 22px 22px;
   position: relative;
   min-height: 160px;
 
-  padding-top: 130px;   /* отводим место под номер */
+  padding-top: 130px;   
 }
 
 .principlesNew-num {
