@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Questions(params) {
+export default function Questions(params) {
   const [active, setActive] = useState(2);
   return (
     <section className="questions container flex">

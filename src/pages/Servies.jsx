@@ -1,20 +1,52 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { BreadCrumbs } from "../bloc/breadСrumbs";
 import { Services_data } from "../data/data_servises";
 
 import "../css/Servises.css";
-import { useState } from "react";
+import { useEffect } from "react";
 import { HelpYr } from "../bloc/hellpYr";
 import { RangeServices } from "../bloc/rangeServices";
-import { LineContact } from "../bloc/line_contant";
+import  LineContact  from "../bloc/line_contant";
 import { CostServises } from "../bloc/costServises";
+import { useRef } from "react";
 
 export function Services() {
   const params = useParams();
   const current = Services_data[params.direction];
+ const location = useLocation();
+ const videoRef = useRef(null);
+  // Эффект для обработки смены страницы
+  useEffect(() => {
+    // Функция для полной перезагрузки видео
+    const reloadVideo = () => {
+      if (videoRef.current) {
+        const video = videoRef.current;
+        
+        // Сохраняем текущие атрибуты
+        const wasPlaying = !video.paused;
+        const currentTime = video.currentTime;
+        
+        // Перезагружаем видео
+        video.load();
+        
+        // Восстанавливаем состояние
+        if (wasPlaying) {
+          video.play().catch(e => console.log('Автовоспроизведение не удалось:', e));
+        }
+        video.currentTime = currentTime;
+      }
+    };
 
-  const [chek, setChek] = useState(null);
+    // Вызываем после небольшой задержки для гарантии
+    const timer = setTimeout(() => {
+      reloadVideo();
+    }, 100);
 
+    // Прокрутка вверх
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    return () => clearTimeout(timer);
+  }, [location.key]); // Используем location.key вместо current
   if (!current) {
     return <h2 className="flex">Страница отсутствует</h2>;
   }
@@ -26,14 +58,7 @@ export function Services() {
     }
   }
 
-  function Open(i) {
-    console.log(chek);
-    if (chek === i) {
-      setChek(null);
-    } else {
-      setChek(i);
-    }
-  }
+
 
   return (
     <main className="services">
@@ -50,6 +75,7 @@ export function Services() {
                 pip="false"
                 playsInline
                 className="services_faise_img"
+                ref={videoRef}
                 poster={`/img/servies/${current.title}.webp`}
               >
                 <source
@@ -62,7 +88,7 @@ export function Services() {
                 />
               </video>
             </div>
-           <div className="services_faise_text">
+            <div className="services_faise_text">
               {current.text && (
                 <p
                   className="services_faise_text"
@@ -72,12 +98,12 @@ export function Services() {
 
               <div className="services_faise_text">
                 {Array.isArray(current.list) && current.list.length > 0 && (
-                <ul className="services_faise_list">
-                  {current.list.map((item, idx) => (
-                    <li key={`${current.title}-li-${idx}`}>{item}</li>
-                  ))}
-                </ul>
-              )}
+                  <ul className="services_faise_list">
+                    {current.list.map((item, idx) => (
+                      <li key={`${current.title}-li-${idx}`}>{item}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               {current.text2 && (

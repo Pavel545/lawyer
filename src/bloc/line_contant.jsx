@@ -1,6 +1,6 @@
 import { useAppContext } from "../layouts/context";
 
-export function LineContact(params) {
+export default function LineContact(params) {
       const {PopGo} = useAppContext();
 
     return(

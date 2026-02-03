@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-export function WeWork(params) {
+export default function WeWork(params) {
   const [time, setTime] = useState(1);
 
   useEffect(() => {

@@ -1,77 +1,155 @@
-import axios from "axios";
 import { useState } from "react";
 import ReactInputMask from "react-input-mask";
 
-export function HelpYr(params) {
+export function HelpYr({ theme = "правовым вопросам" }) {
   const [form, setForm] = useState(false);
-
-    function def(e) {
-        e.preventDefault();
-        const element = {
-          name: e.target[0].value,
-          tel: e.target[1].value,
-          type: e.target[2].value,
-          text: e.target[3].value,
-        };
-    
-    
-        console.log(element);
-        axios({
-          method: 'POST',
-          url: 'https://lawyer.agatech.ru/mail.php',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          data:JSON.stringify(element),
-        })
-        .then((response) => {
-          console.log(response)
-          setForm(true)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    
+  const [loading, setLoading] = useState(false);
+  
+  async function sendToTelegram(data) {
+    try {
+      const BOT_TOKEN = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
+      const SALES_CHAT_ID = process.env.REACT_APP_TELEGRAM_SALES_CHAT_ID;
+      
+      if (!BOT_TOKEN || !SALES_CHAT_ID) {
+        console.error("Telegram credentials not found");
+        return false;
       }
+      
+      const message = `🆕 НОВАЯ ЗАЯВКА НА КОНСУЛЬТАЦИЮ
+
+📋 Тема: ${data.type || theme}
+👤 Имя: ${data.name}
+📞 Телефон: ${data.tel}
+📝 Вопрос: ${data.text || 'Не указано'}
+
+⏰ Время: ${new Date().toLocaleString('ru-RU')}
+🌐 Источник: Блок "Нужна помощь эксперта"`;
+
+      const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: SALES_CHAT_ID,
+          text: message,
+          parse_mode: 'HTML'
+        })
+      });
+
+      return response.ok;
+    } catch (error) {
+      console.error('Ошибка отправки в Telegram:', error);
+      return false;
+    }
+  }
+
+  async function def(e) {
+    e.preventDefault();
+    setLoading(true);
+    
+    const formData = {
+      name: e.target[0].value,
+      tel: e.target[1].value,
+      type: e.target[2].value || theme,
+      text: e.target[3].value || 'Не указано',
+    };
+
+    console.log('Отправка данных из HelpYr:', formData);
+
+    try {
+      // Отправляем в Telegram
+      const telegramSent = await sendToTelegram(formData);
+      
+      // Также отправляем на ваш бэкенд (если нужно)
+      // try {
+      //   await fetch('https://lawyer.agatech.ru/mail.php', {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify(formData),
+      //   });
+      // } catch (apiError) {
+      //   console.log('API ошибка:', apiError);
+      // }
+
+      console.log('Telegram отправлено:', telegramSent);
+      setForm(true);
+    } catch (error) {
+      console.error('Ошибка:', error);
+      alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <section className="HelpYr">
       <div className="container">
         <p className="HelpYr_slogan">
           Нужна помощь эксперта{" "}
-          <span className="yellow">по {params.theme}?</span> <br /> Поможем,
+          <span className="yellow">по {theme}?</span> <br /> Поможем,
           обращайтесь!
         </p>
-        <form style={form?{display:"none"}:{}} action=""
-        onSubmit={def} className="HelpYr_form flex" >
+        
+        <form 
+          style={form ? { display: "none" } : {}} 
+          onSubmit={def} 
+          className="HelpYr_form flex"
+        >
           <h2>
             Запись на <span className="yellow">бесплатную консультацию</span>
           </h2>
-          <input placeholder="Имя" className="HelpYr_form_input" type="text" />
+          
+          <input 
+            placeholder="Имя" 
+            className="HelpYr_form_input" 
+            type="text" 
+            name="name"
+            required
+          />
+          
           <ReactInputMask
             required
             className="HelpYr_form_input"
             placeholder="Телефон"
             mask="+7 (999) 999 99 99"
-            type="text"
+            type="tel"
+            name="phone"
           />
-        <input type="hidden" value={params.theme} />
-
+          
+          <input 
+            type="hidden" 
+            name="type" 
+            value={theme} 
+          />
+          
           <textarea
             placeholder="Задайте свой вопрос?"
             className="HelpYr_form_input text_area"
-            name=""
-            id=""
-            cols="30"
-            rows="10"
+            name="question"
+            required
           ></textarea>
-          <button data-type="Оставить заявку">Оставить заявку</button>
-          <p className="HelpYr_form_place">Нажимая кнопку “Оставить заявку”, Вы подтверждаете что ознакомились с Правилами обработки персональных данных</p>
+          
+          <button 
+            data-type="Оставить заявку"
+            disabled={loading}
+          >
+            {loading ? 'Отправка...' : 'Оставить заявку'}
+          </button>
+          
+          <p className="HelpYr_form_place">
+            Нажимая кнопку "Оставить заявку", Вы подтверждаете что ознакомились 
+            с Правилами обработки персональных данных
+          </p>
         </form>
-        <div style={!form? {display:"none"}:{}}  className="HelpYr_form">
-          <h3 style={{color:"#fff"}}>
-          Ваша заявка успешно отправлена, ожидайте звонка специалиста
+        
+        <div style={!form ? { display: "none" } : {}} className="HelpYr_form">
+          <h3 style={{color: "#fff"}}>
+            Ваша заявка успешно отправлена, ожидайте звонка специалиста
           </h3>
-      </div>
+        </div>
       </div>
     </section>
   );

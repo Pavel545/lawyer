@@ -1,8 +1,7 @@
-import { useRef } from "react";
 import { fizlic, yrid, general } from "../data/basa";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export function LegalServices() {
+export default function LegalServices() {
   function transliterateWord(word) {
     const mapping = {
       а: "a",

@@ -9,8 +9,10 @@
 /coverage
 /public/img
 /public/video
+/public/.env
 # production
 /build
+.env
 
 # misc
 .DS_Store

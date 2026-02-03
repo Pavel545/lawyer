@@ -468,6 +468,16 @@
   .footer_link_box {
     justify-content: flex-start;
   }
+  .goals-content{
+    grid-template-columns: 1fr !important;
+  }
+  .principlesNew-card {
+    padding-top: 60px;
+  }
+  .footer_f {
+    flex-direction: column;
+    align-items: center;
+  }
   .footer_f a {
     font-size: 7px;
   }

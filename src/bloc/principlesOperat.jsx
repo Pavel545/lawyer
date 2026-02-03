@@ -1,4 +1,4 @@
-export function PrinciplesOperat() {
+export default function PrinciplesOperat() {
   const steps = [
     {
       title: "Заявка",

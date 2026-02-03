@@ -1,13 +1,22 @@
-import { Lawyers } from "../bloc/lawyers";
-import { LegalServices } from "../bloc/legalServiceses";
-import { LineContact } from "../bloc/line_contant";
-import { PrinciplesOperat } from "../bloc/principlesOperat";
-import { Questions } from "../bloc/questions";
-import "../css/main.css";
-import { WeWork } from "../bloc/weWork";
-import Goals from "../bloc/goals";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useAppContext } from "../layouts/context";
+import "../css/main.css";
+
+// Ленивая загрузка компонентов
+const LegalServices = lazy(() => import("../bloc/legalServiceses"));
+const WeWork = lazy(() => import("../bloc/weWork"));
+const PrinciplesOperat = lazy(() => import("../bloc/principlesOperat"));
+const Goals = lazy(() => import("../bloc/goals"));
+const Lawyers = lazy(() => import("../bloc/lawyers"));
+const Questions = lazy(() => import("../bloc/questions"));
+const LineContact = lazy(() => import("../bloc/line_contant"));
+
+// Можно добавить fallback для загрузки
+const LoadingFallback = () => (
+  <div className="loading-placeholder">
+    {/* Можно добавить спиннер или скелетон */}
+  </div>
+);
 
 export function Main(params) {
   const [displayedText, setDisplayedText] = useState("");
@@ -29,7 +38,7 @@ export function Main(params) {
     if (displayedText.length < fullText.length) {
       const timeout = setTimeout(() => {
         setDisplayedText(fullText.substring(0, displayedText.length + 1));
-      }, 50); // Скорость печати - 50ms на символ
+      }, 50);
 
       return () => clearTimeout(timeout);
     }
@@ -86,14 +95,17 @@ export function Main(params) {
           </button>
         </div>
       </section>
-      <LegalServices />
-      <WeWork />
-      <PrinciplesOperat />
-      <Goals />
-      <Lawyers />
-      {/* <Reviews/> */}
-      <Questions />
-      <LineContact />
+      
+      {/* Обернуть все лениво загружаемые компоненты в Suspense */}
+      <Suspense fallback={<LoadingFallback />}>
+        <LegalServices />
+        <WeWork />
+        <PrinciplesOperat />
+        <Goals />
+        <Lawyers />
+        <Questions />
+        <LineContact />
+      </Suspense>
     </main>
   );
 }

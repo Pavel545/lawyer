@@ -28,7 +28,7 @@ export const yrid = [
         direction: "otsenka_oborudovaniya_i_mashin",
         name: "Оценка оборудования и машин",
         mini: "Станки, производственные линии, спецтехника.",
-        link: "Правовое сопровождение",
+        link: "Оценка оборудования и машин",
         img: "/img/legalIcons/1.svg",
     },
     {

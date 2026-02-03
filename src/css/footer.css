@@ -194,6 +194,10 @@ nav a.footer_info_map {
   text-align: left;
   color: var(--color-1);
 }
+.footer_f .acr img {
+  width: auto;
+  height: 60px;
+}
 .footer .container {
   display: flex;
   flex-direction: column;

@@ -1,8 +1,8 @@
 import { Map, Placemark, YMaps } from "@pbe/react-yandex-maps";
 import { BreadCrumbs } from "../bloc/breadСrumbs";
 import "../css/kontact.css";
-import { LineContact } from "../bloc/line_contant";
 import {  useState } from "react";
+import LineContact from "../bloc/line_contant";
 
 export function Kontacts() {
   const [first, setfirst] = useState([55.800595, 37.636680]);

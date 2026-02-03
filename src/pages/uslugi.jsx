@@ -1,5 +1,5 @@
 import { BreadCrumbs } from "../bloc/breadСrumbs";
-import { LegalServices } from "../bloc/legalServiceses";
+import LegalServices from "../bloc/legalServiceses";
 
 
 export function Uslugi(params) {

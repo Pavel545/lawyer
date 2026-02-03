@@ -1,6 +1,6 @@
 import { useAppContext } from "../layouts/context";
 
-export function Lawyers() {
+export default function Lawyers() {
   const { PopGo } = useAppContext();
   return (
     <div className="container ">
