@@ -112,7 +112,6 @@ nav.nav_tab a:not(:nth-child(1)) {
   color: var(--color-1);
   text-transform: initial;
   transition: 300ms;
-  text-align: start;
 }
 nav.nav_tab a:not(:nth-child(1)):hover,
 nav a.footer_info_map:hover {
@@ -139,7 +138,6 @@ nav a.footer_info_map {
   text-transform: initial;
   width: 241px;
   transition: 300ms;
-  text-align: start;
 }
 .footer .header_tel {
   align-self: start;
@@ -183,8 +181,8 @@ nav a.footer_info_map {
   border-image-slice: 1;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 20px 0px 20px;
-  opacity: 0.5;
 }
 .footer_f a {
   font-size: 14px;

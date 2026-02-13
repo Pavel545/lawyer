@@ -211,8 +211,12 @@ textarea:focus-visible {
   font-size: 14px;
   line-height: 120%;
   letter-spacing: 0%;
-  color: #ffffffb1;
-  text-align: start;
+  color: #fff;
+
+}
+.HelpYr_form_place label{
+
+  color: #fff;
 }
 /* RangeServices */
 .RangeServices {
@@ -506,7 +510,7 @@ textarea:focus-visible {
 .CostServises_item_name {
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
+  font-size: clamp(14px, 1.2rem,24px);
   line-height: 130%;
   color: #070707;
   padding: 18px 40px;

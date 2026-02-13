@@ -777,7 +777,6 @@
   text-transform: uppercase;
   font-size: 13px;
   color: #003840;
-  text-align: start;
 }
 
 .stepsNew-itemSub {
@@ -785,7 +784,6 @@
   font-size: 13px;
   line-height: 150%;
   opacity: 0.9;
-  text-align: start;
 }
 
 /* =========================

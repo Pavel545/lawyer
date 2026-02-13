@@ -116,7 +116,7 @@ export function Footer(params) {
         <div className="footer_f">
           <a href="/privacy">Политика конфиденциальности</a>
           <a href="">© «Финэкс» 2025</a>
-          <a className="acr" href="https://acr-agency.ru/"><img src="/img/acr.png" alt="Анадитический центр развитие" /></a>
+          <a className="acr" href="https://acr-agency.ru/"><img src="/img/ACR.svg" alt="Анадитический центр развитие" /></a>
         </div>
       </div>
     </footer>

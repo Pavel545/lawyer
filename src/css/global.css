@@ -3,11 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat";
-  text-align: justify;
 }
-body {
-  overflow-x: hidden;
-}
+
 :root {
   --fs-24: 24px;
 
@@ -35,6 +32,11 @@ body {
     #f1e97e 101.93%,
     #b48525 127.99%
   );
+}
+
+body {
+  overflow-x: hidden;
+  background: var(--color-3);
 }
 .container {
   width: 1350px;
@@ -249,7 +251,6 @@ a.normal {
   line-height: 20px;
   color: var(--color-1);
   transition: 300ms;
-  text-align: start;
 }
 a.normal:hover {
   color: var(--color-1);
