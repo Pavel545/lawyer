@@ -2,6 +2,7 @@ import { useAppContext } from "../layouts/context";
 
 import "../css/compani.css";
 import { HelpYr } from "../bloc/hellpYr";
+import { StructuredData } from "../bloc/StructuredData";
 export default function Compani() {
   const { PopGo } = useAppContext();
 
@@ -60,6 +61,10 @@ export default function Compani() {
   ];
 
   return (
+   <>
+    <StructuredData type="organization" />
+          <StructuredData type="localbusiness" />
+          <StructuredData type="breadcrumb" />
     <main>
       {/* HERO (у тебя уже есть) */}
       <section className="faceBloc">
@@ -201,7 +206,7 @@ export default function Compani() {
 
               <div className="geoNew-cardLabel">
                 {" "}
-                ООО "Центр Оценки Консалтинга и Финансовой Экспертизы "Финэкс"
+                ООО «Центр Оценки Консалтинга» и Финансовой Экспертизы «Финэкс»
               </div>
             </div>
 
@@ -222,7 +227,7 @@ export default function Compani() {
               </svg>
 
               <div className="geoNew-cardLabel">
-                ООО "АктавияПро" 
+                ООО "Актавия-Про" 
               </div>
             </div>
           </div>
@@ -287,6 +292,6 @@ export default function Compani() {
       {/* БЛОК 8: CTA */}
       <HelpYr theme={'оценке'}/>
 
-    </main>
+    </main></>
   );
 }

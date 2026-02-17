@@ -9,7 +9,10 @@
   top: 0;
   background: var(--color-3);
 }
-
+.header_logo img {
+  height: 70px;
+  width: auto;
+}
 
 .header_menu {
   background: var(--color-3);

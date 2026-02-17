@@ -9,8 +9,10 @@ import { RangeServices } from "../bloc/rangeServices";
 import  LineContact  from "../bloc/line_contant";
 import { CostServises } from "../bloc/costServises";
 import { useRef } from "react";
+import { SEO } from "../bloc/SEO";
+import { StructuredData } from "../bloc/StructuredData";
 
-export function Services() {
+export default function Services() {
   const params = useParams();
   const current = Services_data[params.direction];
  const location = useLocation();
@@ -61,6 +63,15 @@ export function Services() {
 
 
   return (
+   <>
+   <StructuredData type="organization" />
+         <StructuredData type="localbusiness" />
+         <StructuredData type="breadcrumb" />
+    <SEO 
+        title={current.meta?.title || current.name}
+        description={current.meta?.description || `Услуги ${current.name} в Ульяновске`}
+        keywords={current.meta?.keywords}
+      />
     <main className="services">
       <BreadCrumbs />
       <section className="services_faise">
@@ -127,6 +138,6 @@ export function Services() {
       <RangeServices rod={current.rod} funct={current.funct} />
       <CostServises tab={current.tab} />
       {current.line ? <LineContact line={current.line} /> : <LineContact />}
-    </main>
+    </main></>
   );
 }

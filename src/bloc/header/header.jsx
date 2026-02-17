@@ -3,7 +3,7 @@ import "./header.css";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { fizlic, yrid, general } from "../../data/basa";
 
-export function Headers() {
+export default function Headers() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
@@ -107,17 +107,15 @@ export function Headers() {
           </nav>
 
           <div className="header_info_contacts">
-            <a target="_blank" rel="noreferrer" title="VK" href="https://vk.com/id808117030">
+            {/* <a target="_blank" rel="noreferrer" title="VK" href="https://vk.com/id808117030">
               <img src="/img/vk.png" alt="vk" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=79168868832">
-              <img src="/img/watsapp.png" alt="WhatsApp" />
-            </a>
-            <a target="_blank" rel="noreferrer" href="https://t.me/+79168868832">
+            </a> */}
+            
+            <a target="_blank" rel="noreferrer" href="https://t.me/@FINEKC_BOT">
               <img src="/img/tg.png" alt="Telegram" />
             </a>
-            <a className="header_tel" href="tel:+79168868832">
-              +7 916 886 88 32
+            <a className="header_tel" href="tel:+79165399390">
+               +7 916 539 93 90
             </a>
           </div>
 
@@ -206,14 +204,13 @@ export function Headers() {
 
           <div className="mDrawer__divider" />
 
-          <a className="mDrawer__phone" href="tel:+79168868832">
-            +7 916 886 88 32
+          <a className="mDrawer__phone" href="tel:+79165399390">
+            +7 916 539 93 90
           </a>
 
           <div className="mDrawer__social">
             <a href="https://vk.com/id808117030"><img src="/img/vk.png" alt="vk" /></a>
-            <a href="https://api.whatsapp.com/send?phone=79168868832"><img src="/img/watsapp.png" alt="WhatsApp" /></a>
-            <a href="https://t.me/+79168868832"><img src="/img/tg.png" alt="Telegram" /></a>
+            <a href="https://t.me/+79165399390"><img src="/img/tg.png" alt="Telegram" /></a>
           </div>
         </nav>
       </aside>

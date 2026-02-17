@@ -1,4 +1,5 @@
 import React from "react";
+import { StructuredData } from "../bloc/StructuredData";
 
 /** Все “ответственные” данные — тут */
 export const PRIVACY_CONFIG = {
@@ -28,10 +29,14 @@ function Ul({ items }) {
   );
 }
 
-export function PrivacyPolicy({ config = PRIVACY_CONFIG }) {
+export default function PrivacyPolicy({ config = PRIVACY_CONFIG }) {
   const ops = config.operators.join(" и ");
 
   return (
+   <>
+    <StructuredData type="organization" />
+      <StructuredData type="localbusiness" />
+      <StructuredData type="breadcrumb" />
     <div className="privacyWrap">
       <div className="container">
         <div className="uiCard privacyCard">
@@ -268,5 +273,7 @@ export function PrivacyPolicy({ config = PRIVACY_CONFIG }) {
         </div>
       </div>
     </div>
+   
+   </>
   );
 }

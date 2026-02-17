@@ -1,6 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useAppContext } from "../layouts/context";
 import "../css/main.css";
+import { StructuredData } from "../bloc/StructuredData";
 
 // Ленивая загрузка компонентов
 const LegalServices = lazy(() => import("../bloc/legalServiceses"));
@@ -18,11 +19,11 @@ const LoadingFallback = () => (
   </div>
 );
 
-export function Main(params) {
+export default function Main(params) {
   const [displayedText, setDisplayedText] = useState("");
   const [cursorVisible, setCursorVisible] = useState(true);
   const { PopGo } = useAppContext();
-  const fullText = "ПРОФЕССИОНАЛЬНАЯ ОЦЕНКА И ЭКОНОМИЧЕСКО-ФИНАНСОВАЯ ЭКСПЕРТИЗА";
+  const fullText = "Независимая оценка имущества и экспертиза в Ульяновске";
  
   // Эффект для мигающего курсора
   useEffect(() => {
@@ -57,6 +58,10 @@ export function Main(params) {
   };
 
   return (
+   <>
+    <StructuredData type="organization" />
+      <StructuredData type="localbusiness" />
+      <StructuredData type="breadcrumb" />
     <main>
       <section className="faceBloc">
         <video
@@ -85,7 +90,7 @@ export function Main(params) {
           </h1>
           <p className="slogan">
             Гарантия сдачи отчетов в срок. Аккредитация в банках. <br />
-            Полное соответствие  Федерального закона "Об оценочной деятельности в Российской Федерации" от 29.07.1998 N 135-ФЗ
+            Полное соответствие  Федерального закона «Об оценочной деятельности в Российской Федерации» от 29.07.1998 N 135-ФЗ
           </p>
           <button
             onClick={() => PopGo("Получить консультацию")}
@@ -106,6 +111,6 @@ export function Main(params) {
         <Questions />
         <LineContact />
       </Suspense>
-    </main>
+    </main></>
   );
 }

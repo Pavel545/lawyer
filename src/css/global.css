@@ -678,3 +678,191 @@ input:focus-visible {
   color: var(--color-1);
   font-weight: 900;
 }
+
+
+/* lineContact */
+.lineContact {
+  height: 108px;
+  background: var(--color-gold);
+  position: relative;
+  overflow: hidden;
+}
+.lineContact:after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 200px;
+  margin-left: 50px;
+  background: #fff;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(255, 255, 255, 0.5)),
+    color-stop(50%, #fff),
+    to(rgba(255, 255, 255, 0.5))
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0.5) 0,
+    #fff 50%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5) 0,
+    #fff 50%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  left: -40px;
+  top: -100px;
+  z-index: 1;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  -webkit-animation: 2s ease-in-out infinite movingFlare;
+  animation: 2s ease-in-out infinite movingFlare;
+}
+@-webkit-keyframes movingFlare {
+  0% {
+    left: -30px;
+    margin-left: 0;
+  }
+
+  100%,
+  30% {
+    left: 110%;
+    margin-left: 80px;
+  }
+}
+@keyframes movingFlare {
+  0% {
+    left: -30px;
+    margin-left: 0;
+  }
+
+  100%,
+  30% {
+    left: 110%;
+    margin-left: 80px;
+  }
+}
+
+.lineContact .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  height: 100%;
+}
+.lineContact_button {
+  cursor: pointer;
+  width: 271px;
+  height: 46px;
+  border: 2px solid #b48525;
+  background: none;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #003840;
+  transition: 300ms;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* HelpYr */
+
+.HelpYr {
+  background: url(/public/img/fon_sect3.png);
+  background-size: cover;
+  position: relative;
+}
+/* .HelpYr::after{
+  content: '';
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #0000009c;
+
+} */
+.HelpYr * {
+  z-index: 2;
+}
+.HelpYr button {
+  margin-top: 25px;
+}
+.HelpYr .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.HelpYr_form {
+  gap: 10px;
+  width: 70%;
+  padding: 26px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+
+  background: #001a33;
+
+  align-items: flex-start;
+}
+.HelpYr_form_input {
+  padding: 10px;
+  background: none;
+  border: 0px solid #f8fdff;
+  width: 100%;
+  color: #f8fdff;
+  background: #ffffff33;
+}
+.HelpYr_form_input::placeholder {
+  color: #f8fdffaa;
+}
+.HelpYr_form_input:focus-visible,
+textarea:focus-visible {
+  outline: solid;
+  outline-color: #f9e773;
+  outline-width: 2px;
+}
+.HelpYr_form h2 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 41px;
+  color: #f8fdff;
+}
+.HelpYr_form h2::before {
+  content: none;
+}
+.HelpYr_slogan {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 41px;
+  color: #f8fdff;
+
+  width: 549px;
+
+  margin-top: 63px;
+  justify-self: flex-start;
+}
+.HelpYr_form_place {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: #fff;
+
+}
+.HelpYr_form_place label{
+
+  color: #fff;
+}

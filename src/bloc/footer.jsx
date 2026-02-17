@@ -67,8 +67,8 @@ export function Footer(params) {
               <Link to="/kontacts" className="footer_link">
                 контакты
               </Link>
-                <a className="header_tel" href="tel:+79168868832">
-                  +7 916 886 88 32
+                <a className="header_tel" href="tel:+79165399390">
+                  +7 916 539 93 90
                 </a>
                 <a
                   target="_blank"
@@ -87,21 +87,14 @@ export function Footer(params) {
                 </a>
                 
                 <div className="linksfot">
-                  <a  target="_blank" href="https://vk.com/id808117030">
-                    {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
+                  {/* <a  target="_blank" href="https://vk.com/id808117030">
                     <img
                       src={ "/img/vk.png"}
                       alt="vk"
                     />
-                  </a>
-                  <a target="_blank" href="https://api.whatsapp.com/send?phone=79168868832">
-                    {/* путь к изображениям указывается именно таким образом, указывая путь от папки public, чтобы после билдинга проекта всё коректно находилось */}
-                    <img
-                      src={ "/img/watsapp.png"}
-                      alt="WatsApp"
-                    />
-                  </a>
-                  <a target="_blank"href="https://t.me/+79168868832">
+                  </a> */}
+                
+                  <a target="_blank"href="https://t.me/@FINEKC_BOT">
                     <img
                       src={ "/img/tg.png"}
                       alt="Telegram"
