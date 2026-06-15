@@ -2,12 +2,14 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import "./header.css";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { fizlic, yrid, general } from "../../data/basa";
+import { useDomainContent } from "../../hooks/useDomainContent";
 
 export default function Headers() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const panelRef = useRef(null);
+  const { logo } = useDomainContent();
 
   // Единая структура секций (убираем дублирование)
   const serviceSections = useMemo(
@@ -66,7 +68,7 @@ export default function Headers() {
       <div className="header_menu">
         <div className="container header__row">
           <Link className="header_logo" to="/" aria-label="На главную">
-            <img src="/img/logo/logo4.png" alt="Буржуй" />
+            <img src={logo.logoG} alt="проф-экспертиза" />
           </Link>
 
           {/* Desktop nav */}
@@ -111,7 +113,7 @@ export default function Headers() {
               <img src="/img/vk.png" alt="vk" />
             </a> */}
             
-            <a target="_blank" rel="noreferrer" href="https://t.me/@FINEKC_BOT">
+            <a target="_blank" rel="noreferrer" href="https://t.me/FINEKC_BOT">
               <img src="/img/tg.png" alt="Telegram" />
             </a>
             <a className="header_tel" href="tel:+79165399390">

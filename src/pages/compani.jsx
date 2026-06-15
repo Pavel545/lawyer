@@ -3,9 +3,27 @@ import { useAppContext } from "../layouts/context";
 import "../css/compani.css";
 import { HelpYr } from "../bloc/hellpYr";
 import { StructuredData } from "../bloc/StructuredData";
+import { useState } from "react";
+
+// Компонент для модального окна с изображением
+const ImageModal = ({ isOpen, image, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="image-modal-overlay" onClick={onClose}>
+      <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="image-modal-close" onClick={onClose}>×</button>
+        <img src={image.img} alt={image.title} />
+        <p className="image-modal-caption">{image.title}</p>
+      </div>
+    </div>
+  );
+};
+
 export default function Compani() {
   const { PopGo } = useAppContext();
-
+  const [showAllDocs, setShowAllDocs] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
   const principles = [
     {
       title: "КОМПЕТЕНТНОСТЬ",
@@ -41,19 +59,58 @@ export default function Compani() {
     },
   ];
 
-  // Заглушки: подставишь свои реальные файлы/логотипы
+ // Документы с указанием позиции в сетке
   const docs = [
-    { title: "Свидетельство о членстве в СРО", img: "/img/compani/1d.png" },
-    {
-      title: "Страховой полис ответственности",
-      img: "/img/compani/2d.png",
+    { 
+      title: "15749 Диплом", 
+      img: "/img/compani/15749 Диплом_00001.jpg",
+      gridArea: { 
+        column: '1 / 3',     // первая колонка
+        row: '1 '     // занимает строки с 1 по 3
+      }
     },
     {
-      title: "Квалификационные аттестаты сотрудников",
-      img: "/img/compani/3d.png",
+      title: "Диплом РЭУ им Плеханова",
+      img: "/img/compani/Диплом РЭУ им Плеханова.jpg",
+      gridArea: { 
+        column: '1 / 3',     // вторая колонка
+        row: '2'     // занимает строки с 1 по 3
+      }
+    },
+    {
+      title: "Квалификационные аттестат бизнес 2024",
+      img: "/img/compani/квал. аттестат_бизнес 2024_00001.jpg",
+      gridArea: { 
+        column: '3',     // третья колонка
+        row: '1 / 2'     // занимает строки с 1 по 5
+      }
+    },
+    {
+      title: "Квалификационные аттестат движимость 2024",
+      img: "/img/compani/квал. аттестат_движимость 2024_00001.jpg",
+      gridArea: { 
+        column: '1',     // первая колонка
+        row: '3 '     // занимает строки с 3 по 6
+      }
+    },
+    {
+      title: "Квалификационные аттестат недвижимость 2024",
+      img: "/img/compani/квал. аттестат_недвижимость 2024_00001.jpg",
+      gridArea: { 
+        column: '2',     // вторая колонка
+        row: '3'     // занимает строки с 3 по 6
+      }
+    },
+    {
+      title: "Полис ФИНЕКС 25-26",
+      img: "/img/compani/Полис ФИНЕКС 25-26.jpg",
+      gridArea: { 
+        column: '3',     // третья колонка
+        row: '3'     // занимает строки с 5 по 8
+      }
     },
   ];
-
+  const visibleDocs = showAllDocs ? docs : docs.slice(0, 3);
   const bankLogos = [
     { title: "Сбербанк", img: "/img/banks/sber.webp" },
     { title: "ВТБ", img: "/img/banks/vtb.webp" },
@@ -65,6 +122,14 @@ export default function Compani() {
     <StructuredData type="organization" />
           <StructuredData type="localbusiness" />
           <StructuredData type="breadcrumb" />
+
+
+           {/* Модальное окно для просмотра изображений */}
+      <ImageModal 
+        isOpen={!!selectedImage}
+        image={selectedImage}
+        onClose={() => setSelectedImage(null)}
+      />
     <main>
       {/* HERO (у тебя уже есть) */}
       <section className="faceBloc">
@@ -235,30 +300,50 @@ export default function Compani() {
       </section>
 
       {/* БЛОК 6: Документы и аккредитации */}
-      <section id='accreditation' className="docs sectionPad docsNew">
-        <div className="container">
-          <h2 className="h2 docsNew-title">ДОКУМЕНТЫ И АККРЕДИТАЦИИ</h2>
+        <section id='accreditation' className="docs sectionPad docsNew">
+          <div className="container">
+            <h2 className="h2 docsNew-title">ДОКУМЕНТЫ И АККРЕДИТАЦИИ</h2>
 
-          <div className="docs-grid docsNew-grid3">
-            {docs.slice(0, 3).map((d, idx) => (
-              <figure className="docCard docsNew-card" key={idx}>
-                <div className="docCard-imgWrap">
-                  <img src={d.img} alt={d.title} loading="lazy" />
-                </div>
-                <figcaption className="docCard-title">{d.title}</figcaption>
-              </figure>
-            ))}
-          </div>
+            <div 
+              className="docs-grid-container"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gridAutoRows: 'minmax(80px, auto)',
+                gap: '25px'
+              }}
+            >
+              {visibleDocs.map((d, idx) => (
+                <figure 
+                  className="docCard"
+                  key={idx}
+                  onClick={() => setSelectedImage(d)}
+                  // style={{
+                  //   gridColumn: d.gridArea.column,
+                  //   gridRow: d.gridArea.row
+                  // }}
+                >
+                  <div className="docCard-imgWrap">
+                    <img src={d.img} alt={d.title} loading="lazy" />
+                    <div className="docCard-zoom-icon">🔍</div>
+                  </div>
+                  <figcaption className="docCard-title">{d.title}</figcaption>
+                </figure>
+              ))}
+            </div>
 
-          {/* <div className="docsNew-logos">
-            {bankLogos.map((b, idx) => (
-              <div className="docsNew-logo" key={idx} title={b.title}>
-                <img src={b.img} alt={b.title} loading="lazy" />
+            {docs.length > 3 && (
+              <div className="docsNew-showMore">
+                <button 
+                  className="show-more-btn"
+                  onClick={() => setShowAllDocs(!showAllDocs)}
+                >
+                  {showAllDocs ? 'Скрыть' : 'Посмотреть все документы'}
+                </button>
               </div>
-            ))}
-          </div> */}
-        </div>
-      </section>
+            )}
+          </div>
+        </section>
 
       {/* БЛОК 7: Как мы работаем */}
 

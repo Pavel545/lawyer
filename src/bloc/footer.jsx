@@ -2,14 +2,17 @@ import { HashLink as Link } from "react-router-hash-link";
 import "../css/footer.css";
 import { fizlic, general, yrid } from "../data/basa";
 import { NavLink } from "react-router-dom";
+import { useDomainContent } from "../hooks/useDomainContent";
 
 export function Footer(params) {
+    const { logo } = useDomainContent();
+
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer_body">
             <a className="footer_logo" href="/">
-              <img src={ "/img/logo/logo2.png"} alt="" />{" "}
+              <img src={ logo.logoV} alt="" />{" "}
             </a>
           <div className="footer_link_box">
             <div className="footer_navigate">
@@ -94,7 +97,7 @@ export function Footer(params) {
                     />
                   </a> */}
                 
-                  <a target="_blank"href="https://t.me/@FINEKC_BOT">
+                  <a target="_blank"href="https://t.me/FINEKC_BOT">
                     <img
                       src={ "/img/tg.png"}
                       alt="Telegram"

@@ -5,17 +5,55 @@ export function HelpYr({ theme = "правовым вопросам" }) {
   const [form, setForm] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  async function sendToTelegram(data) {
-    try {
-      const BOT_TOKEN = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
-      const SALES_CHAT_ID = process.env.REACT_APP_TELEGRAM_SALES_CHAT_ID;
+// 1. Функция отправки на удаленный Email-микросервис
+async function sendToEmailApi(data) {
+  try {
+    const API_KEY = process.env.REACT_APP_UNIVERSAL_API_KEY;
+    // Замените на реальный URL вашего развернутого микросервиса Next.js
+    const API_URL = 'https://bravo.acr-agency.ru/api/send-form-universal'; 
 
-      if (!BOT_TOKEN || !SALES_CHAT_ID) {
-        console.error("Telegram credentials not found");
-        return false;
-      }
+    if (!API_KEY) {
+      console.error("Email API key not found in environment variables");
+      return false;
+    }
 
-      const message = `🆕 НОВАЯ ЗАЯВКА НА КОНСУЛЬТАЦИЮ
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${API_KEY}`,
+      },
+      body: JSON.stringify({
+        name: data.name,
+        phone: data.tel,       // Микросервис ожидает 'phone'
+        message: data.text,     // Микросервис ожидает 'message'
+        topic: data.type || theme,
+        _subject: `Заявка на консультацию: ${data.type || theme}`,
+        // Указываем получателей (один или несколько через запятую)
+        _recipients: 'ForAnalyticss@yandex.ru' 
+      }),
+    });
+
+    const result = await response.json();
+    return response.ok && result.success;
+  } catch (error) {
+    console.error("Ошибка отправки на Email API:", error);
+    return false;
+  }
+}
+
+// 2. Ваша функция Telegram (оставили как есть)
+async function sendToTelegram(data) {
+  try {
+    const BOT_TOKEN = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
+    const SALES_CHAT_ID = process.env.REACT_APP_TELEGRAM_SALES_CHAT_ID;
+    
+    if (!BOT_TOKEN || !SALES_CHAT_ID) {
+      console.error("Telegram credentials not found");
+      return false;
+    }
+
+    const message = `🆕 НОВАЯ ЗАЯВКА НА КОНСУЛЬТАЦИЮ
 
 📋 Тема: ${data.type || theme}
 👤 Имя: ${data.name}
@@ -25,64 +63,65 @@ export function HelpYr({ theme = "правовым вопросам" }) {
 ⏰ Время: ${new Date().toLocaleString('ru-RU')}
 🌐 Источник: Блок "Нужна помощь эксперта"`;
 
-      const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          chat_id: SALES_CHAT_ID,
-          text: message,
-          parse_mode: 'HTML'
-        })
-      });
+    const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: SALES_CHAT_ID,
+        text: message,
+        parse_mode: 'HTML' // Если используете HTML, убедитесь, что в тексте нет знаков < или >
+      })
+    });
 
-      return response.ok;
-    } catch (error) {
-      console.error('Ошибка отправки в Telegram:', error);
-      return false;
-    }
+    return response.ok;
+  } catch (error) {
+    console.error('Ошибка отправки в Telegram:', error);
+    return false;
   }
+}
 
-  async function def(e) {
-    e.preventDefault();
-    setLoading(true);
+// 3. Главный обработчик формы
+async function def(e) {
+  e.preventDefault();
+  setLoading(true);
 
-    const formData = {
-      name: e.target[0].value,
-      tel: e.target[1].value,
-      type: e.target[2].value || theme,
-      text: e.target[3].value || 'Не указано',
-    };
+  const formData = {
+    name: e.target[0].value,
+    tel: e.target[1].value,
+    type: e.target[2].value || theme,
+    text: e.target[3].value || 'Не указано',
+  };
 
-    console.log('Отправка данных из HelpYr:', formData);
+  console.log('Отправка данных из HelpYr в TG и Email:', formData);
 
-    try {
-      // Отправляем в Telegram
-      const telegramSent = await sendToTelegram(formData);
+  try {
+    // Запускаем оба запроса одновременно
+    const [telegramSent, emailSent] = await Promise.all([
+      sendToTelegram(formData),
+      sendToEmailApi(formData)
+    ]);
 
-      // Также отправляем на ваш бэкенд (если нужно)
-      // try {
-      //   await fetch('https://lawyer.agatech.ru/mail.php', {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(formData),
-      //   });
-      // } catch (apiError) {
-      //   console.log('API ошибка:', apiError);
-      // }
-
-      console.log('Telegram отправлено:', telegramSent);
-      setForm(true);
-    } catch (error) {
-      console.error('Ошибка:', error);
-      alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
-    } finally {
-      setLoading(false);
+    // Логика валидации успеха: 
+    // Форма считается успешно отправленной, если сработал ХОТЯ БЫ ОДИН канал (через ||)
+    // Если вам строго нужно, чтобы ушло и туда и туда — поменяйте на &&
+    if (!telegramSent && !emailSent) {
+      throw new Error("Не удалось отправить заявку ни в один из каналов связи");
     }
+
+    // Небольшие предупреждения в консоль разработчика на всякий случай
+    if (!telegramSent) console.warn("В Телеграм не ушло, но Email отправлен успешно.");
+    if (!emailSent) console.warn("На почту не ушло, но Телеграм доставлен успешно.");
+
+    setForm(true);
+  } catch (error) {
+    console.error('Ошибка:', error);
+    alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <section className="HelpYr">

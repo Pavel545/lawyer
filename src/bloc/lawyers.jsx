@@ -7,13 +7,8 @@ export default function Lawyers() {
       <div className="lawyers">
         <div className="lawyers_fixed">
           <div className="lawyers_fixed_content">
-            <p className="big">
-              Мы — команда экспертов, которая не просто «пишет отчеты», а
-              вникает в суть вашего бизнеса и ситуации.
-            </p>
-            <button className="pop_up" onClick={() => PopGo("Оставить заявку")}>
-              Оставить заявку
-            </button>
+                     <img className="lawyers_fixed_content_img" src="img/fon_about.png" alt="Наша команда"/>
+
           </div>
         </div>
         <div className="lawyers_info">

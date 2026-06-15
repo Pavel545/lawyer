@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
 export function SEO({ title, description, keywords, image }) {
-  const siteTitle = title ? `${title} | Название вашего сайта` : 'Название вашего сайта';
+  const siteTitle = title ? `${title} | Проф-Экспертиза` : 'Финэкс';
   
   return (
     <Helmet>

@@ -15,7 +15,7 @@ root.render(
   <React.StrictMode>
     <AppProvider>
       <HelmetProvider>
-        <Router />
+          <Router />
       </HelmetProvider>
     </AppProvider>
 

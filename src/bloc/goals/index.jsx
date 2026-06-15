@@ -36,7 +36,7 @@ export default function Goals(params) {
             const Icon = purpose.icon;
             return (
               <div key={index} className="goals-item-contain">
-                <div  className="goals-item ">
+                <div className="goals-item ">
                   <div className="goals-item-icon">
                     <Icon className=" text-[#0a2540]" strokeWidth={2} />
                   </div>
@@ -44,8 +44,8 @@ export default function Goals(params) {
                     <h3 >{purpose.title}</h3>
                     <p className="">{purpose.description}</p>
                   </div>
-              </div>
                 </div>
+              </div>
             );
           })}
         </div>

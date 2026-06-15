@@ -9,50 +9,65 @@ export function Popup() {
   const [form, setForm] = useState(false);
   const [loading, setLoading] = useState(false);
   const ref = useRef(undefined);
-  
-  async function sendToTelegram(data) {
+
+  // 1. Новая функция для отправки на ваш универсальный бэкенд
+  async function sendToEmailApi(data) {
     try {
-      const BOT_TOKEN = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
-      const SALES_CHAT_ID = process.env.REACT_APP_TELEGRAM_SALES_CHAT_ID;
-      
-      if (!BOT_TOKEN || !SALES_CHAT_ID) {
-        console.error("Telegram credentials not found");
-        return false;
-      }
-      
-      const message = `🆕 НОВАЯ ЗАЯВКА С САЙТА
+      // ВАЖНО: Ключ API должен быть доступен во фронтенде (например, через REACT_APP_)
+      const API_KEY = process.env.REACT_APP_UNIVERSAL_API_KEY;
 
-📋 Тип: ${data.type || 'Заявка с popup'}
-👤 Имя: ${data.name}
-📞 Телефон: ${data.tel}
-📝 Вопрос: ${data.text || 'Не указано'}
-
-⏰ Время: ${new Date().toLocaleString('ru-RU')}
-🌐 Источник: Popup форма`;
-
-      const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-        method: 'POST',
+      const response = await fetch('https://bravo.acr-agency.ru/api/send-form-universal', {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${API_KEY}`,
         },
         body: JSON.stringify({
-          chat_id: SALES_CHAT_ID,
-          text: message,
-          parse_mode: 'HTML'
-        })
+          name: data.name,
+          phone: data.tel,       // Поле для бэкенда (изменили с tel на phone)
+          message: data.text,     // Поле для бэкенда (изменили с text на message)
+          topic: data.type,
+          _subject: `Заявка с сайта: ${data.type}`,
+          _recipients: 'ForAnalyticss@yandex.ru' // Нужные почты
+        }),
       });
 
-      return response.ok;
+      const result = await response.json();
+      return response.ok && result.success;
     } catch (error) {
-      console.error('Ошибка отправки в Telegram:', error);
+      console.error("Ошибка отправки на Email API:", error);
       return false;
     }
   }
 
+  // 2. Существующая функция Telegram (без изменений)
+  async function sendToTelegram(data) {
+    try {
+      const BOT_TOKEN = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
+      const SALES_CHAT_ID = process.env.REACT_APP_TELEGRAM_SALES_CHAT_ID;
+
+      const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: SALES_CHAT_ID,
+          text: `Тестовая заявка\nИмя: ${data.name}\nТелефон: ${data.tel}\nТип: ${data.type}\nВопрос: ${data.text}`,
+        }),
+      });
+
+      const result = await response.json();
+      return result.ok;
+    } catch (error) {
+      console.error("Ошибка отправки в Telegram:", error);
+      return false;
+    }
+  }
+
+  // 3. Главный обработчик отправки формы
   async function def(e) {
     e.preventDefault();
     setLoading(true);
-    
+
     const formData = {
       name: e.target[0].value,
       tel: e.target[1].value,
@@ -60,32 +75,30 @@ export function Popup() {
       text: e.target[3].value || 'Не указано',
     };
 
-    console.log('Отправка данных:', formData);
+    console.log('Отправка данных в системы:', formData);
 
     try {
-      // Отправляем в Telegram
-      const telegramSent = await sendToTelegram(formData);
-      
-      // Также отправляем на ваш бэкенд (если нужно)
-      // try {
-      //   await fetch('/mail.php', {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(formData),
-      //   });
-      // } catch (apiError) {
-      //   console.log('API ошибка:', apiError);
-      //   // Продолжаем работу даже если бэкенд недоступен
-      // }
+      // Запускаем отправку в Telegram и на Email одновременно
+      const [telegramSent, emailSent] = await Promise.all([
+        sendToTelegram(formData),
+        sendToEmailApi(formData)
+      ]);
 
-      console.log('Telegram отправлено:', telegramSent);
+      // Проверяем статус отправки. 
+      // Вы можете требовать, чтобы упешно ушло ОБА (&&) или хотя бы ОДНО (||)
+      if (!telegramSent && !emailSent) {
+        throw new Error("Ни один из каналов уведомлений не сработал");
+      }
+
+      if (!telegramSent) console.warn("Предупреждение: В Телеграм не ушло, но Email отправлен");
+      if (!emailSent) console.warn("Предупреждение: На Email не ушло, но Телеграм отправлен");
+
       setForm(true);
     } catch (error) {
       console.error('Ошибка:', error);
       alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
     } finally {
+      console.log("Обработка завершена");
       setLoading(false);
     }
   }
@@ -109,15 +122,15 @@ export function Popup() {
         <p className="popup_form_text">
           {title || 'Для заказа услуги, оставьте заявку. Наш специалист свяжется с вами и ответит на все вопросы.'}
         </p>
-        
-        <input 
-          required 
-          placeholder="Имя" 
-          className="popup_input" 
-          type="text" 
+
+        <input
+          required
+          placeholder="Имя"
+          className="popup_input"
+          type="text"
           name="name"
         />
-        
+
         <ReactInputMask
           required
           className="popup_input"
@@ -126,20 +139,20 @@ export function Popup() {
           type="tel"
           name="phone"
         />
-        
-        <input 
-          type="hidden" 
-          name="type" 
-          value={datatype || "Консультация"} 
+
+        <input
+          type="hidden"
+          name="type"
+          value={datatype || "Консультация"}
         />
-        
+
         <textarea
           required
           placeholder="По какому вопросу вы хотите получить консультацию"
           className="popup_input text_area"
           name="question"
         />
-        
+
         <div className="form_checkbox">
           <input
             className="f_checkbox"
@@ -152,15 +165,15 @@ export function Popup() {
             Я принимаю <a href="/privacy-policy">пользовательское соглашение</a>
           </label>
         </div>
-        
-        <button 
+
+        <button
           className="popup_form_button"
           disabled={loading}
         >
           {loading ? 'Отправка...' : (datatype || 'Отправить')}
         </button>
       </form>
-      
+
       <div style={!form ? { display: "none" } : {}} className="popup_goode">
         <h3>
           Ваша <span className="oregin">заявка успешно отправлена,</span>{" "}
