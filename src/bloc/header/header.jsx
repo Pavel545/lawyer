@@ -112,9 +112,11 @@ export default function Headers() {
             {/* <a target="_blank" rel="noreferrer" title="VK" href="https://vk.com/id808117030">
               <img src="/img/vk.png" alt="vk" />
             </a> */}
-            
-            <a target="_blank" rel="noreferrer" href="https://t.me/FINEKC_BOT">
-              <img src="/img/tg.png" alt="Telegram" />
+             <a target="_blank" title="Бот в MAX" rel="noreferrer" href="https://max.ru/id7326040788_bot">
+              <img src="/img/max.svg" alt="Бот в MAX" />
+            </a>
+            <a target="_blank" title="Бот в Telegram" rel="noreferrer" href="https://t.me/FINEKC_BOT">
+              <img src="/img/tg.png" alt="Бот в Telegram" />
             </a>
             <a className="header_tel" href="tel:+79165399390">
                +7 916 539 93 90

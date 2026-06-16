@@ -97,12 +97,15 @@ export function Footer(params) {
                     />
                   </a> */}
                 
-                  <a target="_blank"href="https://t.me/FINEKC_BOT">
+                  <a title="Бот в Telegram" target="_blank"href="https://t.me/FINEKC_BOT">
                     <img
                       src={ "/img/tg.png"}
-                      alt="Telegram"
+                      alt="Бот в Telegram"
                     />
                   </a>
+                   <a target="_blank" title="Бот в MAX" rel="noreferrer" href="https://max.ru/id7326040788_bot">
+              <img src="/img/max.svg" alt="Бот в MAX" />
+            </a>
                 </div>
               </nav>
             </div>
